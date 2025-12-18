@@ -118,7 +118,7 @@ const projectExperiences: Experience[] = [
     id: "smartpark",
     title: "SmartPark",
     role: "HackHarvard Best Use of Google Cloud",
-    date: "HackHarvard 2023",
+    date: "HackHarvard 2022",
     location: "Harvard University",
     description: "Engineered OpenCV pipeline for real-time spot detection and Django frontend displaying live parking availability across lots.",
     skills: ["Django", "OpenCV", "Firebase"],
