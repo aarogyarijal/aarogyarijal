@@ -136,27 +136,27 @@ function ExperienceCard({
   onToggle: () => void;
 }) {
   return (
-    <div className="rounded-lg p-4 border border-zinc-800 hover:border-zinc-700 transition-all">
-      <div className="flex items-start justify-between gap-2">
+    <div className="rounded-lg p-3 sm:p-4 border border-zinc-800 hover:border-zinc-700 transition-all">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
         <div className="flex-1 min-w-0">
-          <h3 className="text-base font-semibold text-zinc-100 truncate mb-1">{exp.title}</h3>
-          <p className="text-sm text-zinc-400">{exp.role}</p>
-          <div className="flex flex-col text-xs text-zinc-500 font-mono mt-1.5">
-            <span className="flex items-center gap-1"><Calendar size={11} />{exp.date}</span>
+          <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.title}</h3>
+          <p className="text-xs sm:text-sm text-zinc-400">{exp.role}</p>
+          <div className="flex flex-col text-[10px] sm:text-xs text-zinc-500 font-mono mt-1.5">
+            <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
             {exp.location && (
-              <span className="flex items-center gap-1"><MapPin size={11} />{exp.location}</span>
+              <span className="flex items-center gap-1"><MapPin size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.location}</span>
             )}
           </div>
         </div>
-        <div className="flex flex-col items-end gap-2">
+        <div className="flex items-center sm:flex-col sm:items-end gap-2 mt-2 sm:mt-0">
           <div className="flex items-center gap-2">
             {exp.link && (
-              <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors" onClick={(e) => e.stopPropagation()}>
+              <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
                 <ExternalLink size={14} />
               </a>
             )}
             {exp.github && (
-              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors" onClick={(e) => e.stopPropagation()}>
+              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
                 <Github size={14} />
               </a>
             )}
@@ -219,18 +219,18 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
 
   return (
     <div className="flex h-full items-center">
-      <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg shadow-md h-full w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
+      <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md h-full w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
         <div className="mb-2">
-          <h2 className="text-xl font-serif mb-1">
+          <h2 className="text-lg sm:text-xl font-serif mb-1">
             <span className="text-zinc-400">Work &</span> <span className="italic">Projects</span>
           </h2>
         </div>
         
-        {/* Tabs */}
-        <div className="flex gap-2 mb-4 border-b border-zinc-800 pb-2">
+        {/* Tabs - scrollable on mobile */}
+        <div className="flex gap-2 mb-4 border-b border-zinc-800 pb-2 overflow-x-auto scrollbar-hide">
           <button
             onClick={() => { setActiveTab("professional"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border ${
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "professional"
                 ? "bg-red-500/25 text-red-300 border-red-500/40"
                 : "text-zinc-500 hover:text-red-300 hover:bg-red-500/10 border-zinc-700 hover:border-red-500/30"
@@ -240,7 +240,7 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
           </button>
           <button
             onClick={() => { setActiveTab("startup"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border ${
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "startup"
                 ? "bg-green-500/25 text-green-300 border-green-500/40"
                 : "text-zinc-500 hover:text-green-300 hover:bg-green-500/10 border-zinc-700 hover:border-green-500/30"
@@ -250,7 +250,7 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
           </button>
           <button
             onClick={() => { setActiveTab("projects"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border ${
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "projects"
                 ? "bg-yellow-500/25 text-yellow-300 border-yellow-500/40"
                 : "text-zinc-500 hover:text-yellow-300 hover:bg-yellow-500/10 border-zinc-700 hover:border-yellow-500/30"
@@ -260,7 +260,7 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
           </button>
         </div>
         
-        <div className="space-y-2 overflow-y-auto pr-2 flex-1">
+        <div className="space-y-2 overflow-y-auto pr-1 sm:pr-2 flex-1">
           {getExperiences().map((exp) => (
             <ExperienceCard
               key={exp.id}

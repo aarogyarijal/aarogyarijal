@@ -5,9 +5,9 @@ import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 export default function ProfileCard() {
   return (
-    <div className="bg-white dark:bg-zinc-900 p-6 rounded-lg shadow-md flex-1 flex flex-col items-center justify-center border border-gray-200 dark:border-zinc-800">
+    <div className="bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 dark:border-zinc-800">
       {/* Profile Picture */}
-      <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-2 border-zinc-700">
+      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 border-2 border-zinc-700">
         <Image
           src="/pfp.jpeg"
           alt="Aarogya Rijal Profile Picture"
@@ -19,15 +19,15 @@ export default function ProfileCard() {
       </div>
       
       {/* Name */}
-      <h1 className="text-2xl font-bold mb-2 dark:text-white">Aarogya Rijal</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-2 dark:text-white">Aarogya Rijal</h1>
       
       {/* One-line intro */}
-      <p className="text-gray-600 dark:text-gray-400 text-center mb-6">
+      <p className="text-gray-600 dark:text-gray-400 text-center mb-4 sm:mb-6 text-sm sm:text-base">
         Software Engineer & Developer
       </p>
       
       {/* Buttons */}
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 justify-center w-full sm:w-auto">
         <a 
           href="https://github.com/aarogyarijal" 
           target="_blank" 

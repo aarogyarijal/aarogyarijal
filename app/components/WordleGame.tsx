@@ -69,7 +69,7 @@ export default function WordleGame() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-2 sm:gap-3 flex-1 justify-center">
+    <div className="flex flex-col items-center gap-2 sm:gap-3 flex-1 justify-center py-2">
       {/* Hidden input for mobile keyboard */}
       <input
         ref={inputRef}
@@ -104,7 +104,7 @@ export default function WordleGame() {
                   return (
                     <div 
                       key={col} 
-                      className={`w-10 h-10 sm:w-8 sm:h-8 border-2 border-zinc-600 flex items-center justify-center text-base sm:text-sm font-bold rounded ${guess ? getStatus(guess[col], col, guess) : ""}`}
+                      className={`w-9 h-9 sm:w-8 sm:h-8 border-2 border-zinc-600 flex items-center justify-center text-sm font-bold rounded ${guess ? getStatus(guess[col], col, guess) : ""}`}
                     >
                       {letter}
                     </div>
@@ -116,36 +116,36 @@ export default function WordleGame() {
 
           {/* Result */}
           {gameOver && (
-            <p className={`text-sm sm:text-xs font-bold ${won ? "text-green-400" : "text-red-400"}`}>
+            <p className={`text-xs sm:text-xs font-bold ${won ? "text-green-400" : "text-red-400"}`}>
               {won ? "Rogi is the name!" : `It's ${TARGET}!`}
             </p>
           )}
 
-          {/* Mobile Keyboard */}
-          <div className="flex flex-col gap-1 sm:hidden mt-2">
+          {/* Mobile Keyboard - show on touch devices */}
+          <div className="flex flex-col gap-1 sm:hidden mt-1">
             {KEYBOARD.map((row, i) => (
               <div key={i} className="flex gap-0.5 justify-center">
                 {row.split("").map(k => (
                   <button 
                     key={k} 
                     onClick={() => handleKey(k)} 
-                    className="w-7 h-9 text-xs bg-zinc-600 hover:bg-zinc-500 active:bg-zinc-400 rounded font-semibold touch-manipulation"
+                    className="w-7 h-8 text-[10px] bg-zinc-600 hover:bg-zinc-500 active:bg-zinc-400 rounded font-semibold touch-manipulation"
                   >
                     {k}
                   </button>
                 ))}
               </div>
             ))}
-            <div className="flex gap-1 justify-center mt-1">
+            <div className="flex gap-1 justify-center mt-0.5">
               <button 
                 onClick={() => handleKey("BACKSPACE")} 
-                className="px-3 h-9 text-xs bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-500 rounded touch-manipulation"
+                className="px-3 h-8 text-xs bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-500 rounded touch-manipulation"
               >
                 ⌫
               </button>
               <button 
                 onClick={submit} 
-                className="px-4 h-9 text-xs bg-green-600 hover:bg-green-500 active:bg-green-700 rounded font-semibold touch-manipulation"
+                className="px-4 h-8 text-xs bg-green-600 hover:bg-green-500 active:bg-green-700 rounded font-semibold touch-manipulation"
               >
                 Enter
               </button>

@@ -46,14 +46,14 @@ const dotColorClasses: Record<string, string> = {
 
 export default function Education() {
   return (
-    <div className="bg-white dark:bg-zinc-900 p-6 rounded-lg shadow-md flex-1 border border-gray-200 dark:border-zinc-800">
-      <div className="mb-4">
-        <h2 className="text-xl font-serif mb-1">
+    <div className="bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800">
+      <div className="mb-3 sm:mb-4">
+        <h2 className="text-lg sm:text-xl font-serif mb-1">
           <span className="italic">Education</span>
         </h2>
-        <p className="text-xs text-zinc-500">Academic background.</p>
+        <p className="text-[10px] sm:text-xs text-zinc-500">Academic background.</p>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {educationData.map((edu, index) => (
           <div 
             key={index} 

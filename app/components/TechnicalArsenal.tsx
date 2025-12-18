@@ -69,12 +69,12 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
     : allSkills.filter(s => primarySkills.has(s.skill));
 
   return (
-    <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg shadow-md flex-1 border border-gray-200 dark:border-zinc-800 overflow-visible">
-      <div className="mb-4">
-        <h2 className="text-xl font-serif mb-1">
+    <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800 overflow-visible">
+      <div className="mb-3 sm:mb-4">
+        <h2 className="text-lg sm:text-xl font-serif mb-1">
           <span className="text-zinc-400">Technical</span> <span className="italic">Arsenal</span>
         </h2>
-        <p className="text-xs text-zinc-500">
+        <p className="text-[10px] sm:text-xs text-zinc-500">
           {hasHighlights 
             ? `Showing ${highlightedSkills.length} experience skill${highlightedSkills.length > 1 ? 's' : ''}` 
             : "Core technologies."}
@@ -85,7 +85,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       <div className="mb-2">
         <button 
           onClick={() => setIsFilterExpanded(!isFilterExpanded)}
-          className="flex items-center gap-2 px-3 py-2 bg-zinc-800/70 text-zinc-300 border border-zinc-700 rounded-md text-xs font-medium hover:bg-zinc-700 hover:text-white transition-all"
+          className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-zinc-800/70 text-zinc-300 border border-zinc-700 rounded-md text-[10px] sm:text-xs font-medium hover:bg-zinc-700 hover:text-white transition-all"
         >
           <span>Filter Skills</span>
           <ChevronDown size={12} className={`transition-transform ${isFilterExpanded ? "rotate-180" : ""}`} />
@@ -94,7 +94,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
 
       {/* Collapsible Filter Buttons */}
       {isFilterExpanded && (
-        <div className="flex flex-wrap gap-1.5 mb-4 animate-in slide-in-from-top-2 duration-200">
+        <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-4 animate-in slide-in-from-top-2 duration-200">
           {[
             { key: "all" as SkillFilter, label: "All", active: "bg-white text-black border-white", inactive: "bg-zinc-800/70 text-zinc-300 border-zinc-700 hover:bg-zinc-700" },
             { key: "frontend" as SkillFilter, label: "Frontend", active: "bg-blue-500 text-white border-blue-500", inactive: "bg-blue-500/10 text-blue-300 border-blue-500/30 hover:bg-blue-500/20" },
@@ -107,7 +107,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
             <button 
               key={key}
               onClick={() => setSkillFilter(key)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all border ${skillFilter === key ? active : inactive}`}
+              className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-[10px] sm:text-xs font-medium transition-all border ${skillFilter === key ? active : inactive}`}
             >
               {label}
             </button>
@@ -116,7 +116,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       )}
 
       {/* Skills Grid */}
-      <div className={`flex flex-wrap gap-2 overflow-y-auto overflow-x-visible p-1 -m-1 transition-all ${isFilterExpanded ? 'max-h-[calc(100%-12rem)]' : 'max-h-[calc(100%-7rem)]'}`}>
+      <div className="flex flex-wrap gap-1.5 sm:gap-2 overflow-y-auto overflow-x-visible p-1 -m-1 transition-all max-h-[200px] sm:max-h-[250px]">
         {visibleSkills.map(({ skill, category, color }) => {
           const isHighlighted = highlightedSkills.includes(skill);
           const isDimmed = hasHighlights && !isHighlighted;
@@ -124,7 +124,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
           return (
             <span 
               key={skill}
-              className={`text-xs font-medium px-2 py-1 rounded border transition-all duration-300 ${
+              className={`text-[10px] sm:text-xs font-medium px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border transition-all duration-300 ${
                 isHighlighted 
                   ? highlightedClasses[color] 
                   : isDimmed 
@@ -140,8 +140,8 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       </div>
 
       {/* Skills Count */}
-      <div className="mt-3 pt-2 border-t border-zinc-800">
-        <p className="text-xs text-zinc-500">
+      <div className="mt-2 sm:mt-3 pt-2 border-t border-zinc-800">
+        <p className="text-[10px] sm:text-xs text-zinc-500">
           {visibleSkills.length} skill{visibleSkills.length !== 1 ? "s" : ""}
           {hasHighlights && <span className="text-zinc-400"> • {highlightedSkills.length} from experience</span>}
         </p>
