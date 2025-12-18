@@ -47,14 +47,14 @@ export default function ProfileCard() {
           LinkedIn
         </a>
         <a 
-          href="mailto:your.email@example.com"
+          href="mailto:aarogya.rijal@gmail.com"
           className="px-3 py-2 bg-zinc-800 text-green-400 rounded-lg hover:bg-zinc-700 hover:text-green-300 border border-zinc-700 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
         >
           <Mail size={16} />
           Email
         </a>
         <a 
-          href="/resume.pdf" 
+          href="/Resume-Aarogya-Rijal-2025_12_15.pdf" 
           target="_blank"
           className="px-3 py-2 bg-zinc-800 text-purple-400 rounded-lg hover:bg-zinc-700 hover:text-purple-300 border border-zinc-700 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
         >
