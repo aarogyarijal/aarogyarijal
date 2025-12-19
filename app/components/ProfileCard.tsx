@@ -38,7 +38,7 @@ export default function ProfileCard() {
           GitHub
         </a>
         <a 
-          href="https://linkedin.com/in/aarogyarijal" 
+          href="https://www.linkedin.com/in/aarogya-rijal-6166792a7"
           target="_blank" 
           rel="noopener noreferrer"
           className="px-3 py-2 bg-zinc-800 text-blue-400 rounded-lg hover:bg-zinc-700 hover:text-blue-300 border border-zinc-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
