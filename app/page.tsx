@@ -5,7 +5,7 @@ import ProfileCard from "./components/ProfileCard";
 import Education from "./components/Education";
 import WorkProjects from "./components/WorkProjects";
 import TechnicalArsenal from "./components/TechnicalArsenal";
-import WordleGame from "./components/WordleGame";
+import AarogyaBot from "./components/AarogyaBot";
 
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState<string[]>([]);
@@ -24,17 +24,11 @@ export default function Home() {
           <WorkProjects onSkillHighlight={setHighlightedSkills} />
         </div>
         
-        {/* Right Column - Skills & Game */}
+        {/* Right Column - Skills & Chat */}
         <div className="flex flex-col gap-4 md:col-span-2 lg:col-span-1">
           <TechnicalArsenal highlightedSkills={highlightedSkills} />
-          <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800 flex flex-col min-h-[280px]">
-            <div className="mb-2">
-              <h2 className="text-xl font-serif">
-                <span className="italic">Wordle</span>
-              </h2>
-              <p className="text-[10px] text-zinc-500">Guess the 4-letter word.</p>
-            </div>
-            <WordleGame />
+          <div className="min-h-[320px]">
+            <AarogyaBot />
           </div>
         </div>
       </div>
