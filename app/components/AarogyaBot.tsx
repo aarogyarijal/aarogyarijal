@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Sparkles } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   id: number;
@@ -26,7 +27,7 @@ export default function AarogyaBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 0,
-      text: "Hey! 👋 I'm Aarogya (call me Rogi). Ask me anything about my work, skills, or background!",
+      text: "Hey! I'm Aarogya. Ask me anything about my work, skills, or background!",
       isBot: true,
       timestamp: new Date(),
     },
@@ -154,17 +155,16 @@ export default function AarogyaBot() {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[320px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[380px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
       {/* Header */}
       <div className="p-3 sm:p-4 border-b border-zinc-800 flex items-center gap-3 flex-shrink-0">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
           <Bot size={18} className="text-white" />
         </div>
         <div>
-          <h2 className="text-sm sm:text-base font-semibold text-zinc-100">Chat with Rogi</h2>
+          <h2 className="text-sm sm:text-base font-semibold text-zinc-100">Chat with Aarogya</h2>
           <p className="text-[10px] sm:text-xs text-zinc-500">Powered by AI • Ask me anything</p>
         </div>
-        <Sparkles size={14} className="text-yellow-400 ml-auto animate-pulse" />
       </div>
 
       {/* Messages */}
@@ -188,13 +188,87 @@ export default function AarogyaBot() {
               )}
             </div>
             <div
-              className={`max-w-[80%] px-3 py-2 rounded-lg text-xs sm:text-sm whitespace-pre-wrap ${
+              className={`max-w-[80%] px-3 py-2 rounded-lg text-xs sm:text-sm ${
                 msg.isBot
                   ? "bg-zinc-800 text-zinc-200"
-                  : "bg-green-600 text-white"
+                  : "bg-green-600 text-white whitespace-pre-wrap"
               }`}
             >
-              {msg.text}
+              {msg.isBot ? (
+                <ReactMarkdown
+                  components={{
+                    // Bold text
+                    strong: ({ children }) => (
+                      <strong className="font-semibold text-zinc-100">{children}</strong>
+                    ),
+                    // Italic text
+                    em: ({ children }) => (
+                      <em className="italic">{children}</em>
+                    ),
+                    // Paragraphs
+                    p: ({ children }) => (
+                      <p className="mb-2 last:mb-0">{children}</p>
+                    ),
+                    // Unordered lists
+                    ul: ({ children }) => (
+                      <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>
+                    ),
+                    // Ordered lists
+                    ol: ({ children }) => (
+                      <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>
+                    ),
+                    // List items
+                    li: ({ children }) => (
+                      <li className="ml-1">{children}</li>
+                    ),
+                    // Links
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
+                        {children}
+                      </a>
+                    ),
+                    // Code inline
+                    code: ({ children }) => (
+                      <code className="bg-zinc-700 px-1 py-0.5 rounded text-green-300 text-[11px]">
+                        {children}
+                      </code>
+                    ),
+                    // Code blocks
+                    pre: ({ children }) => (
+                      <pre className="bg-zinc-700 p-2 rounded my-2 overflow-x-auto text-[11px]">
+                        {children}
+                      </pre>
+                    ),
+                    // Headings
+                    h1: ({ children }) => (
+                      <h1 className="text-base font-bold mb-2 text-zinc-100">{children}</h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className="text-sm font-bold mb-1 text-zinc-100">{children}</h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="text-xs font-bold mb-1 text-zinc-100">{children}</h3>
+                    ),
+                    // Blockquotes
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-2 border-green-500 pl-2 my-2 italic text-zinc-400">
+                        {children}
+                      </blockquote>
+                    ),
+                    // Horizontal rule
+                    hr: () => <hr className="border-zinc-700 my-2" />,
+                  }}
+                >
+                  {msg.text}
+                </ReactMarkdown>
+              ) : (
+                msg.text
+              )}
             </div>
           </div>
         ))}

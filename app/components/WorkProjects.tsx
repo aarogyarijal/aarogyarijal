@@ -161,8 +161,8 @@ function ExperienceCard({
         
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-1 min-w-0">
           <div className="flex-1 min-w-0">
-            <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.title}</h3>
-            <p className="text-xs sm:text-sm text-zinc-400">{exp.role}</p>
+            <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.role}</h3>
+            <p className="text-xs sm:text-sm text-zinc-400">{exp.title}</p>
             <div className="flex flex-col text-[10px] sm:text-xs text-zinc-500 font-mono mt-1.5">
               <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
               {exp.location && (
