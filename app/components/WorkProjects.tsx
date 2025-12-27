@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Github, ExternalLink, Calendar, MapPin, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface WorkProjectsProps {
   onSkillHighlight: (skills: string[]) => void;
@@ -17,6 +18,7 @@ interface Experience {
   skills: string[];
   link?: string;
   github?: string;
+  logo?: string;
 }
 
 const professionalExperiences: Experience[] = [
@@ -28,7 +30,8 @@ const professionalExperiences: Experience[] = [
     location: "Worcester, MA",
     description: "Managed 100+ wpi.edu pages serving 60K+ visitors monthly using Drupal and Laravel. Migrated codebase from JS to TypeScript, reducing runtime errors by 98%.",
     skills: ["Drupal", "Laravel", "TypeScript", "JavaScript", "CI/CD", "HTML/CSS", "SASS", "PHP"],
-    link: "https://wpi.edu"
+    link: "https://wpi.edu",
+    logo: "/worcester_polytechnic_institute_logo.jpeg"
   },
   {
     id: "wpi-cloud",
@@ -38,7 +41,8 @@ const professionalExperiences: Experience[] = [
     location: "Worcester, MA",
     description: "Built WPI Alexa skill using Node.js and AWS serving real-time news and announcements to the community. Implemented Jest test suite with +90% coverage.",
     skills: ["JavaScript", "Node.js", "AWS Lambda", "Jest", "ASK SDKs", "CI/CD", "AWS Lambda"],
-    link: "https://www.amazon.com/Worcester-Polytechnic-Institute-WPI/dp/B0CVJFBK1X"
+    link: "https://www.amazon.com/Worcester-Polytechnic-Institute-WPI/dp/B0CVJFBK1X",
+    logo: "/worcester_polytechnic_institute_logo.jpeg"
   },
   {
     id: "baato",
@@ -48,7 +52,8 @@ const professionalExperiences: Experience[] = [
     location: "Kathmandu, Nepal",
     description: "Led 30+ user interviews identifying critical UX gaps in local digital map adoption, resulting in 5+ feature recommendations. Studied digital behavior of Nepali users and co-authored a research paper focusing on the local use of digital maps.",
     skills: ["User Research", "Data Analysis"],
-    link: "https://digital.wpi.edu/concern/student_works/ht24wp732?locale=en"
+    link: "https://digital.wpi.edu/concern/student_works/ht24wp732?locale=en",
+    logo: "/baato_maps_logo.jpeg"
   },
   {
     id: "stem",
@@ -57,7 +62,8 @@ const professionalExperiences: Experience[] = [
     date: "Jun 2023 - Aug 2023",
     location: "Medford, MA & Kathmandu, Nepal",
     description: "Facilitated collaboration between Tufts CEEO & 20 Nepalese teachers in co-creation of engaging educational activities. Developed teaching materials and trained 20+ educators in Nepal, empowering them with practical STEM teaching techniques.",
-    skills: ["Curriculum Development", "Teacher Training"]
+    skills: ["Curriculum Development", "Teacher Training"],
+    logo: "/tuftsceeo_logo.jpeg"
   }
 ];
 
@@ -70,7 +76,8 @@ const startupExperiences: Experience[] = [
     location: "Remote",
     description: "Secured $20,000 credits to scale a tutor discovery platform serving 1000+ users. Reduced infrastructure costs by 95% through AWS migration and managed development across 4 time zones.",
     skills: ["React", "TypeScript", "Next.js", "AWS EC2", "RDS", "CI/CD", "PostgreSQL"],
-    link: "https://sirkoi.com"
+    link: "https://sirkoi.com",
+    logo: "/sirkoi_logo.webp"
   },
   {
     id: "foundercloud",
@@ -80,7 +87,8 @@ const startupExperiences: Experience[] = [
     location: "Remote",
     description: "Led full rebrand from Starthawk to FounderCloud with website migration, logo design, and built an interactive feed for 30,000+ users to post and engage with startup ideas.",
     skills: ["Next.js", "GraphQL", "SEO", "Analytics"],
-    link: "https://foundercloud.com"
+    link: "https://foundercloud.com",
+    logo: "/starthawk_logo.jpeg"
   }
 ];
 
@@ -137,18 +145,32 @@ function ExperienceCard({
 }) {
   return (
     <div className="rounded-lg p-3 sm:p-4 border border-zinc-800 hover:border-zinc-700 transition-all">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-        <div className="flex-1 min-w-0">
-          <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.title}</h3>
-          <p className="text-xs sm:text-sm text-zinc-400">{exp.role}</p>
-          <div className="flex flex-col text-[10px] sm:text-xs text-zinc-500 font-mono mt-1.5">
-            <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
-            {exp.location && (
-              <span className="flex items-center gap-1"><MapPin size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.location}</span>
-            )}
+      <div className="flex items-start gap-3">
+        {/* Logo */}
+        {exp.logo && (
+          <div className={`flex-shrink-0 w-10 h-10 rounded-md overflow-hidden ${exp.id === 'sirkoi' ? 'bg-white p-1' : ''}`}>
+            <Image
+              src={exp.logo}
+              alt={`${exp.title} logo`}
+              width={40}
+              height={40}
+              className={`w-full h-full ${exp.id === 'baato' ? 'object-cover scale-150' : 'object-contain'}`}
+            />
           </div>
-        </div>
-        <div className="flex items-center sm:flex-col sm:items-end gap-2 mt-2 sm:mt-0">
+        )}
+        
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-1 min-w-0">
+          <div className="flex-1 min-w-0">
+            <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.title}</h3>
+            <p className="text-xs sm:text-sm text-zinc-400">{exp.role}</p>
+            <div className="flex flex-col text-[10px] sm:text-xs text-zinc-500 font-mono mt-1.5">
+              <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
+              {exp.location && (
+                <span className="flex items-center gap-1"><MapPin size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.location}</span>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center sm:flex-col sm:items-end gap-2 mt-2 sm:mt-0">
           <div className="flex items-center gap-2">
             {exp.link && (
               <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
@@ -172,6 +194,7 @@ function ExperienceCard({
             <span>{isExpanded ? "Hide" : "Details"}</span>
             <ChevronRight size={10} className={`transition-transform ${isExpanded ? "rotate-90" : ""}`} />
           </button>
+        </div>
         </div>
       </div>
 
