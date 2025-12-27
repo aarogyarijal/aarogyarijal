@@ -34,6 +34,7 @@ export default function AarogyaBot() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -46,7 +47,7 @@ export default function AarogyaBot() {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim() || isTyping) return;
+    if (!input.trim() || isTyping || isStreaming) return;
 
     const userMessage: Message = {
       id: messages.length,
@@ -60,15 +61,8 @@ export default function AarogyaBot() {
     setInput("");
     setIsTyping(true);
 
-    // Create a placeholder bot message for streaming
+    // Bot message ID for streaming
     const botMessageId = messages.length + 1;
-    const botMessage: Message = {
-      id: botMessageId,
-      text: "",
-      isBot: true,
-      timestamp: new Date(),
-    };
-    setMessages((prev) => [...prev, botMessage]);
 
     try {
       // Build conversation history for context
@@ -110,6 +104,19 @@ export default function AarogyaBot() {
         fullText += decoder.decode(value, { stream: true });
       }
 
+      // Switch from loading to streaming mode
+      setIsTyping(false);
+      setIsStreaming(true);
+
+      // Create placeholder bot message for streaming
+      const botMessage: Message = {
+        id: botMessageId,
+        text: "",
+        isBot: true,
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, botMessage]);
+
       // Display text word by word at reading pace
       const words = fullText.split(/(\s+)/); // Split but keep whitespace
       let displayedText = "";
@@ -130,15 +137,27 @@ export default function AarogyaBot() {
       }
     } catch (error) {
       console.error("Chat error:", error);
-      setMessages((prev) =>
-        prev.map((msg) =>
-          msg.id === botMessageId
-            ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at aarogya.rijal@gmail.com!" }
-            : msg
-        )
-      );
+      // Add error message (may not exist yet if error happened before streaming)
+      setMessages((prev) => {
+        const exists = prev.some((msg) => msg.id === botMessageId);
+        if (exists) {
+          return prev.map((msg) =>
+            msg.id === botMessageId
+              ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at aarogya.rijal@gmail.com!" }
+              : msg
+          );
+        } else {
+          return [...prev, {
+            id: botMessageId,
+            text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at aarogya.rijal@gmail.com!",
+            isBot: true,
+            timestamp: new Date(),
+          }];
+        }
+      });
     } finally {
       setIsTyping(false);
+      setIsStreaming(false);
     }
   };
 
@@ -317,12 +336,12 @@ export default function AarogyaBot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything..."
-            disabled={isTyping}
+            disabled={isTyping || isStreaming}
             className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-green-500 transition-colors disabled:opacity-50"
           />
           <button
             onClick={handleSend}
-            disabled={!input.trim() || isTyping}
+            disabled={!input.trim() || isTyping || isStreaming}
             className="px-3 py-2 bg-green-600 hover:bg-green-500 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
           >
             <Send size={16} />
