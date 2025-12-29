@@ -25,6 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:image" content="/pfp.jpeg" />
+        <meta name="twitter:image" content="/pfp.jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
