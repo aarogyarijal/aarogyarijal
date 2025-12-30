@@ -54,7 +54,7 @@ export default function ProfileCard() {
           Email
         </a>
         <a
-          href="/Resume-Aarogya-Rijal-2025_12_15.pdf"
+          href="/Resume-Aarogya-Rijal-2025-12-26.pdf"
           target="_blank"
           className="px-3 py-2 bg-pink-50 text-pink-700 rounded-lg hover:bg-pink-100 border border-pink-200 dark:bg-zinc-800 dark:text-pink-400 dark:border-pink-500/30 dark:hover:bg-pink-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
         >
