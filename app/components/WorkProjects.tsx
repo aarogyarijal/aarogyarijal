@@ -134,13 +134,13 @@ const projectExperiences: Experience[] = [
   }
 ];
 
-function ExperienceCard({ 
-  exp, 
-  isExpanded, 
-  onToggle 
-}: { 
-  exp: Experience; 
-  isExpanded: boolean; 
+function ExperienceCard({
+  exp,
+  isExpanded,
+  onToggle
+}: {
+  exp: Experience;
+  isExpanded: boolean;
   onToggle: () => void;
 }) {
   return (
@@ -158,7 +158,7 @@ function ExperienceCard({
             />
           </div>
         )}
-        
+
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-1 min-w-0">
           <div className="flex-1 min-w-0">
             <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100 truncate mb-1">{exp.role}</h3>
@@ -171,35 +171,34 @@ function ExperienceCard({
             </div>
           </div>
           <div className="flex items-center sm:flex-col sm:items-end gap-2 mt-2 sm:mt-0">
-          <div className="flex items-center gap-2">
-            {exp.link && (
-              <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
-                <ExternalLink size={14} />
-              </a>
-            )}
-            {exp.github && (
-              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
-                <Github size={14} />
-              </a>
-            )}
+            <div className="flex items-center gap-2">
+              {exp.link && (
+                <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
+                  <ExternalLink size={14} />
+                </a>
+              )}
+              {exp.github && (
+                <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
+                  <Github size={14} />
+                </a>
+              )}
+            </div>
+            <button
+              onClick={onToggle}
+              className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium transition-all border ${isExpanded
+                  ? "bg-zinc-50 text-zinc-900 border-gray-200 dark:bg-zinc-700 dark:text-white dark:border-zinc-600"
+                  : "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white"
+                }`}
+            >
+              <span>{isExpanded ? "Hide" : "Details"}</span>
+              <ChevronRight size={10} className={`transition-transform ${isExpanded ? "rotate-90" : ""}`} />
+            </button>
           </div>
-          <button
-            onClick={onToggle}
-            className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium transition-all border ${
-              isExpanded 
-                ? "bg-zinc-50 text-zinc-900 border-gray-200 dark:bg-zinc-700 dark:text-white dark:border-zinc-600" 
-                : "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white"
-            }`}
-          >
-            <span>{isExpanded ? "Hide" : "Details"}</span>
-            <ChevronRight size={10} className={`transition-transform ${isExpanded ? "rotate-90" : ""}`} />
-          </button>
-        </div>
         </div>
       </div>
 
       {/* Expanded Content */}
-        {isExpanded && (
+      {isExpanded && (
         <div className="mt-3 pt-3 border-t border-gray-200 dark:border-zinc-800 animate-in slide-in-from-top-2 duration-200">
           <p className="text-xs text-zinc-700 dark:text-zinc-400 leading-relaxed">{exp.description}</p>
           <p className="text-[10px] text-zinc-600 dark:text-zinc-500 mt-2 italic">
@@ -248,41 +247,38 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
             <span className="text-zinc-700 dark:text-zinc-400">Work &</span> <span className="italic">Projects</span>
           </h2>
         </div>
-        
+
         {/* Tabs - scrollable on mobile */}
-  <div className="flex gap-2 mb-4 border-b border-gray-200 dark:border-zinc-800 pb-2 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-2 mb-4 border-b border-gray-200 dark:border-zinc-800 pb-2 overflow-x-auto scrollbar-hide">
           <button
             onClick={() => { setActiveTab("professional"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
-              activeTab === "professional"
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${activeTab === "professional"
                 ? "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/25 dark:text-red-300 dark:border-red-500/40"
                 : "text-zinc-700 dark:text-zinc-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-500/10 border-gray-200 dark:border-zinc-700 hover:border-red-500/30"
-            }`}
+              }`}
           >
             Professional
           </button>
           <button
             onClick={() => { setActiveTab("startup"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
-              activeTab === "startup"
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${activeTab === "startup"
                 ? "bg-green-50 text-green-700 border-green-200 dark:bg-green-500/25 dark:text-green-300 dark:border-green-500/40"
                 : "text-zinc-700 dark:text-zinc-400 hover:text-green-700 hover:bg-green-50 dark:hover:bg-green-500/10 border-gray-200 dark:border-zinc-700 hover:border-green-500/30"
-            }`}
+              }`}
           >
             Startup
           </button>
           <button
             onClick={() => { setActiveTab("projects"); setExpandedId(null); }}
-            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
-              activeTab === "projects"
+            className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${activeTab === "projects"
                 ? "bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-500/25 dark:text-yellow-300 dark:border-yellow-500/40"
                 : "text-zinc-700 dark:text-zinc-400 hover:text-yellow-700 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border-gray-200 dark:border-zinc-700 hover:border-yellow-500/30"
-            }`}
+              }`}
           >
             Projects
           </button>
         </div>
-        
+
         <div className="space-y-2 overflow-y-auto pr-1 sm:pr-2 flex-1">
           {getExperiences().map((exp) => (
             <ExperienceCard

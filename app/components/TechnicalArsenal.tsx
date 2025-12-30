@@ -56,13 +56,13 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
   // Get all skills with their category info
   const allSkills = skillFilter === "all"
     ? Object.entries(skillsData).flatMap(([category, data]) =>
-        data.skills.map(skill => ({ skill, category, color: data.color }))
-      )
+      data.skills.map(skill => ({ skill, category, color: data.color }))
+    )
     : skillsData[skillFilter]?.skills.map(skill => ({
-        skill,
-        category: skillFilter,
-        color: skillsData[skillFilter].color
-      })) || [];
+      skill,
+      category: skillFilter,
+      color: skillsData[skillFilter].color
+    })) || [];
 
   // When highlighting, show highlighted skills + primary skills
   // When not highlighting, show only primary skills
@@ -77,15 +77,15 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
           <span className="text-zinc-700 dark:text-zinc-400">Technical</span> <span className="italic">Arsenal</span>
         </h2>
         <p className="text-[10px] sm:text-xs text-zinc-600 dark:text-zinc-500">
-          {hasHighlights 
-            ? `Showing ${highlightedSkills.length} experience skill${highlightedSkills.length > 1 ? 's' : ''}` 
+          {hasHighlights
+            ? `Showing ${highlightedSkills.length} experience skill${highlightedSkills.length > 1 ? 's' : ''}`
             : "Core technologies."}
         </p>
       </div>
-      
+
       {/* Filter Toggle Button */}
       <div className="mb-2">
-        <button 
+        <button
           onClick={() => setIsFilterExpanded(!isFilterExpanded)}
           className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-50 text-zinc-900 border border-gray-200 rounded-md text-[10px] sm:text-xs font-medium hover:bg-gray-100 dark:bg-zinc-800/70 dark:text-zinc-300 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-white transition-all"
         >
@@ -106,7 +106,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
             { key: "tools" as SkillFilter, label: "Tools", active: "bg-red-50 text-red-700 border-red-200 dark:bg-red-500 dark:text-white dark:border-red-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-red-50 dark:hover:bg-red-500/10" },
             { key: "other" as SkillFilter, label: "Other", active: "bg-pink-50 text-pink-700 border-pink-200 dark:bg-pink-500 dark:text-white dark:border-pink-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-pink-50 dark:hover:bg-pink-500/10" },
           ].map(({ key, label, active, inactive }) => (
-            <button 
+            <button
               key={key}
               onClick={() => setSkillFilter(key)}
               className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-[10px] sm:text-xs font-medium transition-all border ${skillFilter === key ? active : inactive}`}
@@ -122,17 +122,16 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
         {visibleSkills.map(({ skill, category, color }) => {
           const isHighlighted = highlightedSkills.includes(skill);
           const isDimmed = hasHighlights && !isHighlighted;
-          
+
           return (
-            <span 
+            <span
               key={skill}
-              className={`text-[10px] sm:text-xs font-medium px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border transition-all duration-300 ${
-                isHighlighted 
-                  ? highlightedClasses[color] 
-                  : isDimmed 
-                    ? `${colorClasses[color]} opacity-40` 
+              className={`text-[10px] sm:text-xs font-medium px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border transition-all duration-300 ${isHighlighted
+                  ? highlightedClasses[color]
+                  : isDimmed
+                    ? `${colorClasses[color]} opacity-40`
                     : `${colorClasses[color]} hover:scale-105`
-              }`}
+                }`}
               title={`Category: ${category}`}
             >
               {skill}

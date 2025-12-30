@@ -72,7 +72,7 @@ export default function AarogyaBot() {
           role: msg.isBot ? "assistant" as const : "user" as const,
           content: msg.text,
         }));
-      
+
       // Add the new user message
       chatHistory.push({ role: "user", content: userInput });
 
@@ -120,7 +120,7 @@ export default function AarogyaBot() {
       // Display text word by word at reading pace
       const words = fullText.split(/(\s+)/); // Split but keep whitespace
       let displayedText = "";
-      
+
       for (const word of words) {
         displayedText += word;
         setMessages((prev) =>
@@ -176,7 +176,7 @@ export default function AarogyaBot() {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[380px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
       {/* Header */}
-  <div className="p-3 sm:p-4 border-b border-gray-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0">
+      <div className="p-3 sm:p-4 border-b border-gray-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
           <Bot size={18} className="text-white" />
         </div>
@@ -194,23 +194,21 @@ export default function AarogyaBot() {
             className={`flex items-start gap-2 ${msg.isBot ? "" : "flex-row-reverse"}`}
           >
             <div
-              className={`w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center ${
-                msg.isBot
+              className={`w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center ${msg.isBot
                   ? "bg-gradient-to-br from-green-400 to-emerald-600"
                   : "bg-gray-50 dark:bg-zinc-700"
-              }`}
+                }`}
             >
-                  {msg.isBot ? (
-                    <Bot size={12} className="text-white" />
-                  ) : (
-                    <User size={12} className="text-zinc-900 dark:text-zinc-300" />
-                  )}
+              {msg.isBot ? (
+                <Bot size={12} className="text-white" />
+              ) : (
+                <User size={12} className="text-zinc-900 dark:text-zinc-300" />
+              )}
             </div>
             <div
-              className={`max-w-[80%] px-3 py-2 rounded-lg text-xs sm:text-sm ${
-                  msg.isBot
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200"
-                    : "bg-green-600 text-white whitespace-pre-wrap"
+              className={`max-w-[80%] px-3 py-2 rounded-lg text-xs sm:text-sm ${msg.isBot
+                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200"
+                  : "bg-green-600 text-white whitespace-pre-wrap"
                 }`}
             >
               {msg.isBot ? (
@@ -243,11 +241,11 @@ export default function AarogyaBot() {
                     // Links
                     a: ({ href, children }) => (
                       <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-green-400 hover:text-green-300 underline"
-                        >
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
                         {children}
                       </a>
                     ),

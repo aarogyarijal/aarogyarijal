@@ -18,12 +18,12 @@ export default function Home() {
           <ProfileCard />
           <Education />
         </div>
-        
+
         {/* Middle Column - Work/Projects */}
         <div className="md:col-span-1 lg:col-span-1 min-h-[400px] md:min-h-0">
           <WorkProjects onSkillHighlight={setHighlightedSkills} />
         </div>
-        
+
         {/* Right Column - Skills & Chat */}
         <div className="flex flex-col gap-4 md:col-span-2 lg:col-span-1">
           <TechnicalArsenal highlightedSkills={highlightedSkills} />

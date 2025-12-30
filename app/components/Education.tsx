@@ -55,8 +55,8 @@ export default function Education() {
       </div>
       <div className="space-y-3 sm:space-y-4">
         {educationData.map((edu, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`relative pl-4 border-l-2 ${colorClasses[edu.color]}`}
           >
             <div className={`absolute -left-[5px] top-1 w-2 h-2 rounded-full ${dotColorClasses[edu.color]}`}></div>
