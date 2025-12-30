@@ -23,9 +23,23 @@ const SUGGESTED_QUESTIONS = [
   "How can I contact you?",
 ];
 
-const logChat = (userMessage: string, botResponse: string) => {
+const logChat = async (userMessage: string, botResponse: string) => {
   try {
-    fetch(
+    // Attempt to fetch the client's IP address. If this fails, fall back to an empty string.
+    let ip = "";
+    try {
+      const ipRes = await fetch("https://api.ipify.org?format=json");
+      if (ipRes.ok) {
+        const ipData = await ipRes.json();
+        ip = ipData?.ip || "";
+      }
+    } catch (e) {
+      // Non-fatal — continue without IP if the lookup fails.
+      console.debug("ip fetch failed:", e);
+    }
+
+    // Send data to Google Forms. mode: 'no-cors' is used so we don't rely on the response.
+    await fetch(
       "https://docs.google.com/forms/d/e/1FAIpQLSedNHsXMpNQJlk8488G_83Q1qcpoR4JOGzk40TcG8ftJ_eCEQ/formResponse",
       {
         method: "POST",
@@ -34,6 +48,7 @@ const logChat = (userMessage: string, botResponse: string) => {
           "entry.1701281691": new Date().toISOString(),
           "entry.1003610227": userMessage,
           "entry.1587683112": botResponse,
+          "entry.612190342": ip,
         }),
       }
     );
@@ -157,7 +172,7 @@ export default function AarogyaBot() {
       }
 
       try {
-        logChat(userInput, fullText);
+        await logChat(userInput, fullText);
       } catch (e) {
         console.debug("logChat failed:", e);
       }
