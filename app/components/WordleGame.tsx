@@ -15,9 +15,9 @@ export default function WordleGame() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const getStatus = (letter: string, idx: number, guess: string) => {
-    if (guess[idx] === TARGET[idx]) return "bg-green-600";
-    if (TARGET.includes(letter)) return "bg-yellow-600";
-    return "bg-zinc-700";
+    if (guess[idx] === TARGET[idx]) return "bg-green-600 text-white";
+    if (TARGET.includes(letter)) return "bg-yellow-600 text-white";
+    return "bg-gray-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100";
   };
 
   const submit = useCallback(() => {
@@ -87,7 +87,7 @@ export default function WordleGame() {
 
       {!playing && !gameOver ? (
         <div className="text-center">
-          <p className="text-zinc-400 text-xs sm:text-sm mb-2">Guess my nickname</p>
+          <p className="text-zinc-700 dark:text-zinc-400 text-xs sm:text-sm mb-2">Guess my nickname</p>
           <button onClick={startGame} className="px-4 py-2 bg-green-600 hover:bg-green-500 active:bg-green-700 rounded text-sm sm:text-base flex items-center gap-2 mx-auto touch-manipulation">
             <Play size={16} /> Play
           </button>
@@ -104,7 +104,7 @@ export default function WordleGame() {
                   return (
                     <div 
                       key={col} 
-                      className={`w-9 h-9 sm:w-8 sm:h-8 border-2 border-zinc-600 flex items-center justify-center text-sm font-bold rounded ${guess ? getStatus(guess[col], col, guess) : ""}`}
+                      className={`w-9 h-9 sm:w-8 sm:h-8 border-2 border-gray-200 dark:border-zinc-600 flex items-center justify-center text-sm font-bold rounded ${guess ? getStatus(guess[col], col, guess) : "bg-gray-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"}`}
                     >
                       {letter}
                     </div>
@@ -129,7 +129,7 @@ export default function WordleGame() {
                   <button 
                     key={k} 
                     onClick={() => handleKey(k)} 
-                    className="w-7 h-8 text-[10px] bg-zinc-600 hover:bg-zinc-500 active:bg-zinc-400 rounded font-semibold touch-manipulation"
+                    className="w-7 h-8 text-[10px] bg-gray-50 dark:bg-zinc-600 text-zinc-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-500 active:opacity-80 rounded font-semibold touch-manipulation"
                   >
                     {k}
                   </button>
@@ -139,7 +139,7 @@ export default function WordleGame() {
             <div className="flex gap-1 justify-center mt-0.5">
               <button 
                 onClick={() => handleKey("BACKSPACE")} 
-                className="px-3 h-8 text-xs bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-500 rounded touch-manipulation"
+                className="px-3 h-8 text-xs bg-gray-50 dark:bg-zinc-700 text-zinc-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-600 active:opacity-80 rounded touch-manipulation"
               >
                 ⌫
               </button>
@@ -153,11 +153,11 @@ export default function WordleGame() {
           </div>
 
           {/* Desktop hint */}
-          {!gameOver && <p className="text-[10px] text-zinc-500 hidden sm:block">Type & press Enter</p>}
+          {!gameOver && <p className="text-[10px] text-zinc-600 dark:text-zinc-400 hidden sm:block">Type & press Enter</p>}
 
           {/* Reset */}
           {gameOver && (
-            <button onClick={reset} className="px-3 py-1.5 sm:px-2 sm:py-1 bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-500 rounded text-xs sm:text-[10px] flex items-center gap-1 touch-manipulation">
+            <button onClick={reset} className="px-3 py-1.5 sm:px-2 sm:py-1 bg-gray-50 dark:bg-zinc-700 text-zinc-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-600 rounded text-xs sm:text-[10px] flex items-center gap-1 touch-manipulation">
               <RotateCcw size={12} /> Again
             </button>
           )}

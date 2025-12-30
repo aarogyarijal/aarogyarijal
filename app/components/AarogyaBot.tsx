@@ -176,13 +176,13 @@ export default function AarogyaBot() {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[380px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
       {/* Header */}
-      <div className="p-3 sm:p-4 border-b border-zinc-800 flex items-center gap-3 flex-shrink-0">
+  <div className="p-3 sm:p-4 border-b border-gray-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
           <Bot size={18} className="text-white" />
         </div>
         <div>
-          <h2 className="text-sm sm:text-base font-semibold text-zinc-100">Chat with Aarogya</h2>
-          <p className="text-[10px] sm:text-xs text-zinc-500">Powered by AI • Ask me anything</p>
+          <h2 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100">Chat with Aarogya</h2>
+          <p className="text-[10px] sm:text-xs text-zinc-600 dark:text-zinc-500">Powered by AI • Ask me anything</p>
         </div>
       </div>
 
@@ -197,28 +197,28 @@ export default function AarogyaBot() {
               className={`w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center ${
                 msg.isBot
                   ? "bg-gradient-to-br from-green-400 to-emerald-600"
-                  : "bg-zinc-700"
+                  : "bg-gray-50 dark:bg-zinc-700"
               }`}
             >
-              {msg.isBot ? (
-                <Bot size={12} className="text-white" />
-              ) : (
-                <User size={12} className="text-zinc-300" />
-              )}
+                  {msg.isBot ? (
+                    <Bot size={12} className="text-white" />
+                  ) : (
+                    <User size={12} className="text-zinc-900 dark:text-zinc-300" />
+                  )}
             </div>
             <div
               className={`max-w-[80%] px-3 py-2 rounded-lg text-xs sm:text-sm ${
-                msg.isBot
-                  ? "bg-zinc-800 text-zinc-200"
-                  : "bg-green-600 text-white whitespace-pre-wrap"
-              }`}
+                  msg.isBot
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200"
+                    : "bg-green-600 text-white whitespace-pre-wrap"
+                }`}
             >
               {msg.isBot ? (
                 <ReactMarkdown
                   components={{
                     // Bold text
                     strong: ({ children }) => (
-                      <strong className="font-semibold text-zinc-100">{children}</strong>
+                      <strong className="font-semibold text-zinc-900 dark:text-zinc-100">{children}</strong>
                     ),
                     // Italic text
                     em: ({ children }) => (
@@ -243,44 +243,44 @@ export default function AarogyaBot() {
                     // Links
                     a: ({ href, children }) => (
                       <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-400 hover:text-green-300 underline"
-                      >
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green-400 hover:text-green-300 underline"
+                        >
                         {children}
                       </a>
                     ),
                     // Code inline
                     code: ({ children }) => (
-                      <code className="bg-zinc-700 px-1 py-0.5 rounded text-green-300 text-[11px]">
+                      <code className="bg-zinc-100 px-1 py-0.5 rounded text-green-700 text-[11px] dark:bg-zinc-700 dark:text-green-300">
                         {children}
                       </code>
                     ),
                     // Code blocks
                     pre: ({ children }) => (
-                      <pre className="bg-zinc-700 p-2 rounded my-2 overflow-x-auto text-[11px]">
+                      <pre className="bg-zinc-100 p-2 rounded my-2 overflow-x-auto text-[11px] dark:bg-zinc-700 dark:text-zinc-200">
                         {children}
                       </pre>
                     ),
                     // Headings
                     h1: ({ children }) => (
-                      <h1 className="text-base font-bold mb-2 text-zinc-100">{children}</h1>
+                      <h1 className="text-base font-bold mb-2 text-zinc-900 dark:text-zinc-100">{children}</h1>
                     ),
                     h2: ({ children }) => (
-                      <h2 className="text-sm font-bold mb-1 text-zinc-100">{children}</h2>
+                      <h2 className="text-sm font-bold mb-1 text-zinc-900 dark:text-zinc-100">{children}</h2>
                     ),
                     h3: ({ children }) => (
-                      <h3 className="text-xs font-bold mb-1 text-zinc-100">{children}</h3>
+                      <h3 className="text-xs font-bold mb-1 text-zinc-900 dark:text-zinc-100">{children}</h3>
                     ),
                     // Blockquotes
                     blockquote: ({ children }) => (
-                      <blockquote className="border-l-2 border-green-500 pl-2 my-2 italic text-zinc-400">
+                      <blockquote className="border-l-2 border-green-500 pl-2 my-2 italic text-zinc-700 dark:text-zinc-400">
                         {children}
                       </blockquote>
                     ),
                     // Horizontal rule
-                    hr: () => <hr className="border-zinc-700 my-2" />,
+                    hr: () => <hr className="border-gray-200 dark:border-zinc-700 my-2" />,
                   }}
                 >
                   {msg.text}
@@ -296,11 +296,11 @@ export default function AarogyaBot() {
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
               <Bot size={12} className="text-white" />
             </div>
-            <div className="bg-zinc-800 px-3 py-2 rounded-lg">
+            <div className="bg-gray-50 dark:bg-zinc-800 px-3 py-2 rounded-lg">
               <div className="flex gap-1">
-                <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                <span className="w-2 h-2 bg-gray-300 dark:bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 bg-gray-300 dark:bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 bg-gray-300 dark:bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
           </div>
@@ -311,13 +311,13 @@ export default function AarogyaBot() {
       {/* Suggestions */}
       {messages.length === 1 && (
         <div className="px-3 sm:px-4 pb-2 flex-shrink-0">
-          <p className="text-[10px] text-zinc-500 mb-1.5">Try asking:</p>
+          <p className="text-[10px] text-zinc-700 dark:text-zinc-500 mb-1.5">Try asking:</p>
           <div className="flex flex-wrap gap-1.5">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
                 key={q}
                 onClick={() => handleSuggestion(q)}
-                className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 rounded text-[10px] sm:text-xs transition-colors border border-zinc-700 hover:border-zinc-600"
+                className="px-2 py-1 bg-gray-50 text-zinc-900 border border-gray-200 hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-300 dark:border-zinc-700 rounded text-[10px] sm:text-xs transition-colors"
               >
                 {q}
               </button>
@@ -327,7 +327,7 @@ export default function AarogyaBot() {
       )}
 
       {/* Input */}
-      <div className="p-3 sm:p-4 border-t border-zinc-800 flex-shrink-0">
+      <div className="p-3 sm:p-4 border-t border-gray-200 dark:border-zinc-800 flex-shrink-0">
         <div className="flex gap-2">
           <input
             ref={inputRef}
@@ -337,12 +337,12 @@ export default function AarogyaBot() {
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything..."
             disabled={isTyping || isStreaming}
-            className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-green-500 transition-colors disabled:opacity-50"
+            className="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs sm:text-sm text-zinc-900 placeholder-zinc-500 focus:outline-none focus:border-green-500 transition-colors disabled:opacity-50 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-200 dark:placeholder-zinc-500"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || isTyping || isStreaming}
-            className="px-3 py-2 bg-green-600 hover:bg-green-500 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            className="px-3 py-2 bg-green-600 hover:bg-green-500 disabled:bg-gray-200 disabled:dark:bg-zinc-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
           >
             <Send size={16} />
           </button>

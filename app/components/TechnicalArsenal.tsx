@@ -28,12 +28,14 @@ const skillsData = {
 };
 
 const colorClasses: Record<string, string> = {
-  blue: "bg-blue-500/20 text-blue-300 border-blue-500/30",
-  green: "bg-green-500/20 text-green-300 border-green-500/30",
-  orange: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-  purple: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-  red: "bg-red-500/20 text-red-300 border-red-500/30",
-  pink: "bg-pink-500/20 text-pink-300 border-pink-500/30"
+  // Light-mode: use pale background with darker text/borders
+  // Dark-mode: use the original tinted dark backgrounds with lighter text
+  blue: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500/20 dark:text-blue-300 dark:border-blue-500/30",
+  green: "bg-green-50 text-green-700 border-green-200 dark:bg-green-500/20 dark:text-green-300 dark:border-green-500/30",
+  orange: "bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-500/20 dark:text-orange-300 dark:border-orange-500/30",
+  purple: "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30",
+  red: "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/20 dark:text-red-300 dark:border-red-500/30",
+  pink: "bg-pink-50 text-pink-700 border-pink-200 dark:bg-pink-500/20 dark:text-pink-300 dark:border-pink-500/30"
 };
 
 const highlightedClasses: Record<string, string> = {
@@ -72,9 +74,9 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
     <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800 overflow-visible">
       <div className="mb-3 sm:mb-4">
         <h2 className="text-lg sm:text-xl font-serif mb-1">
-          <span className="text-zinc-400">Technical</span> <span className="italic">Arsenal</span>
+          <span className="text-zinc-700 dark:text-zinc-400">Technical</span> <span className="italic">Arsenal</span>
         </h2>
-        <p className="text-[10px] sm:text-xs text-zinc-500">
+        <p className="text-[10px] sm:text-xs text-zinc-600 dark:text-zinc-500">
           {hasHighlights 
             ? `Showing ${highlightedSkills.length} experience skill${highlightedSkills.length > 1 ? 's' : ''}` 
             : "Core technologies."}
@@ -85,7 +87,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       <div className="mb-2">
         <button 
           onClick={() => setIsFilterExpanded(!isFilterExpanded)}
-          className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-zinc-800/70 text-zinc-300 border border-zinc-700 rounded-md text-[10px] sm:text-xs font-medium hover:bg-zinc-700 hover:text-white transition-all"
+          className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-50 text-zinc-900 border border-gray-200 rounded-md text-[10px] sm:text-xs font-medium hover:bg-gray-100 dark:bg-zinc-800/70 dark:text-zinc-300 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-white transition-all"
         >
           <span>Filter Skills</span>
           <ChevronDown size={12} className={`transition-transform ${isFilterExpanded ? "rotate-180" : ""}`} />
@@ -96,13 +98,13 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       {isFilterExpanded && (
         <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-4 animate-in slide-in-from-top-2 duration-200">
           {[
-            { key: "all" as SkillFilter, label: "All", active: "bg-white text-black border-white", inactive: "bg-zinc-800/70 text-zinc-300 border-zinc-700 hover:bg-zinc-700" },
-            { key: "frontend" as SkillFilter, label: "Frontend", active: "bg-blue-500 text-white border-blue-500", inactive: "bg-blue-500/10 text-blue-300 border-blue-500/30 hover:bg-blue-500/20" },
-            { key: "backend" as SkillFilter, label: "Backend", active: "bg-green-500 text-white border-green-500", inactive: "bg-green-500/10 text-green-300 border-green-500/30 hover:bg-green-500/20" },
-            { key: "cloud" as SkillFilter, label: "Cloud", active: "bg-orange-500 text-white border-orange-500", inactive: "bg-orange-500/10 text-orange-300 border-orange-500/30 hover:bg-orange-500/20" },
-            { key: "database" as SkillFilter, label: "Database", active: "bg-purple-500 text-white border-purple-500", inactive: "bg-purple-500/10 text-purple-300 border-purple-500/30 hover:bg-purple-500/20" },
-            { key: "tools" as SkillFilter, label: "Tools", active: "bg-red-500 text-white border-red-500", inactive: "bg-red-500/10 text-red-300 border-red-500/30 hover:bg-red-500/20" },
-            { key: "other" as SkillFilter, label: "Other", active: "bg-pink-500 text-white border-pink-500", inactive: "bg-pink-500/10 text-pink-300 border-pink-500/30 hover:bg-pink-500/20" },
+            { key: "all" as SkillFilter, label: "All", active: "bg-gray-50 text-zinc-900 border-gray-200 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-800", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800/60" },
+            { key: "frontend" as SkillFilter, label: "Frontend", active: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500 dark:text-white dark:border-blue-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-blue-50 dark:hover:bg-blue-500/10" },
+            { key: "backend" as SkillFilter, label: "Backend", active: "bg-green-50 text-green-700 border-green-200 dark:bg-green-500 dark:text-white dark:border-green-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-green-50 dark:hover:bg-green-500/10" },
+            { key: "cloud" as SkillFilter, label: "Cloud", active: "bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-500 dark:text-white dark:border-orange-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-orange-50 dark:hover:bg-orange-500/10" },
+            { key: "database" as SkillFilter, label: "Database", active: "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500 dark:text-white dark:border-purple-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-purple-50 dark:hover:bg-purple-500/10" },
+            { key: "tools" as SkillFilter, label: "Tools", active: "bg-red-50 text-red-700 border-red-200 dark:bg-red-500 dark:text-white dark:border-red-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-red-50 dark:hover:bg-red-500/10" },
+            { key: "other" as SkillFilter, label: "Other", active: "bg-pink-50 text-pink-700 border-pink-200 dark:bg-pink-500 dark:text-white dark:border-pink-500", inactive: "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-pink-50 dark:hover:bg-pink-500/10" },
           ].map(({ key, label, active, inactive }) => (
             <button 
               key={key}

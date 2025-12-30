@@ -144,7 +144,7 @@ function ExperienceCard({
   onToggle: () => void;
 }) {
   return (
-    <div className="rounded-lg p-3 sm:p-4 border border-zinc-800 hover:border-zinc-700 transition-all">
+    <div className="rounded-lg p-3 sm:p-4 border border-gray-200 dark:border-zinc-800 hover:dark:border-zinc-700 transition-all">
       <div className="flex items-start gap-3">
         {/* Logo */}
         {exp.logo && (
@@ -161,9 +161,9 @@ function ExperienceCard({
         
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-1 min-w-0">
           <div className="flex-1 min-w-0">
-            <h3 className="text-sm sm:text-base font-semibold text-zinc-100 truncate mb-1">{exp.role}</h3>
-            <p className="text-xs sm:text-sm text-zinc-400">{exp.title}</p>
-            <div className="flex flex-col text-[10px] sm:text-xs text-zinc-500 font-mono mt-1.5">
+            <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100 truncate mb-1">{exp.role}</h3>
+            <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400">{exp.title}</p>
+            <div className="flex flex-col text-[10px] sm:text-xs text-zinc-600 dark:text-zinc-500 font-mono mt-1.5">
               <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
               {exp.location && (
                 <span className="flex items-center gap-1"><MapPin size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.location}</span>
@@ -173,12 +173,12 @@ function ExperienceCard({
           <div className="flex items-center sm:flex-col sm:items-end gap-2 mt-2 sm:mt-0">
           <div className="flex items-center gap-2">
             {exp.link && (
-              <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
+              <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
                 <ExternalLink size={14} />
               </a>
             )}
             {exp.github && (
-              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
+              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-green-400 transition-colors p-1" onClick={(e) => e.stopPropagation()}>
                 <Github size={14} />
               </a>
             )}
@@ -187,8 +187,8 @@ function ExperienceCard({
             onClick={onToggle}
             className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium transition-all border ${
               isExpanded 
-                ? "bg-zinc-700 text-white border-zinc-600" 
-                : "bg-zinc-800/50 text-zinc-400 border-zinc-700 hover:bg-zinc-700 hover:text-white hover:border-zinc-600"
+                ? "bg-zinc-50 text-zinc-900 border-gray-200 dark:bg-zinc-700 dark:text-white dark:border-zinc-600" 
+                : "bg-transparent text-zinc-700 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white"
             }`}
           >
             <span>{isExpanded ? "Hide" : "Details"}</span>
@@ -199,10 +199,10 @@ function ExperienceCard({
       </div>
 
       {/* Expanded Content */}
-      {isExpanded && (
-        <div className="mt-3 pt-3 border-t border-zinc-800 animate-in slide-in-from-top-2 duration-200">
-          <p className="text-xs text-zinc-400 leading-relaxed">{exp.description}</p>
-          <p className="text-[10px] text-zinc-500 mt-2 italic">
+        {isExpanded && (
+        <div className="mt-3 pt-3 border-t border-gray-200 dark:border-zinc-800 animate-in slide-in-from-top-2 duration-200">
+          <p className="text-xs text-zinc-700 dark:text-zinc-400 leading-relaxed">{exp.description}</p>
+          <p className="text-[10px] text-zinc-600 dark:text-zinc-500 mt-2 italic">
             Skills highlighted in Technical Arsenal →
           </p>
         </div>
@@ -245,18 +245,18 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
       <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md h-full w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
         <div className="mb-2">
           <h2 className="text-lg sm:text-xl font-serif mb-1">
-            <span className="text-zinc-400">Work &</span> <span className="italic">Projects</span>
+            <span className="text-zinc-700 dark:text-zinc-400">Work &</span> <span className="italic">Projects</span>
           </h2>
         </div>
         
         {/* Tabs - scrollable on mobile */}
-        <div className="flex gap-2 mb-4 border-b border-zinc-800 pb-2 overflow-x-auto scrollbar-hide">
+  <div className="flex gap-2 mb-4 border-b border-gray-200 dark:border-zinc-800 pb-2 overflow-x-auto scrollbar-hide">
           <button
             onClick={() => { setActiveTab("professional"); setExpandedId(null); }}
             className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "professional"
-                ? "bg-red-500/25 text-red-300 border-red-500/40"
-                : "text-zinc-500 hover:text-red-300 hover:bg-red-500/10 border-zinc-700 hover:border-red-500/30"
+                ? "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/25 dark:text-red-300 dark:border-red-500/40"
+                : "text-zinc-700 dark:text-zinc-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-500/10 border-gray-200 dark:border-zinc-700 hover:border-red-500/30"
             }`}
           >
             Professional
@@ -265,8 +265,8 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
             onClick={() => { setActiveTab("startup"); setExpandedId(null); }}
             className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "startup"
-                ? "bg-green-500/25 text-green-300 border-green-500/40"
-                : "text-zinc-500 hover:text-green-300 hover:bg-green-500/10 border-zinc-700 hover:border-green-500/30"
+                ? "bg-green-50 text-green-700 border-green-200 dark:bg-green-500/25 dark:text-green-300 dark:border-green-500/40"
+                : "text-zinc-700 dark:text-zinc-400 hover:text-green-700 hover:bg-green-50 dark:hover:bg-green-500/10 border-gray-200 dark:border-zinc-700 hover:border-green-500/30"
             }`}
           >
             Startup
@@ -275,8 +275,8 @@ export default function WorkProjects({ onSkillHighlight }: WorkProjectsProps) {
             onClick={() => { setActiveTab("projects"); setExpandedId(null); }}
             className={`px-3 py-2 text-xs font-medium rounded-lg transition-all border whitespace-nowrap flex-shrink-0 ${
               activeTab === "projects"
-                ? "bg-yellow-500/25 text-yellow-300 border-yellow-500/40"
-                : "text-zinc-500 hover:text-yellow-300 hover:bg-yellow-500/10 border-zinc-700 hover:border-yellow-500/30"
+                ? "bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-500/25 dark:text-yellow-300 dark:border-yellow-500/40"
+                : "text-zinc-700 dark:text-zinc-400 hover:text-yellow-700 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border-gray-200 dark:border-zinc-700 hover:border-yellow-500/30"
             }`}
           >
             Projects

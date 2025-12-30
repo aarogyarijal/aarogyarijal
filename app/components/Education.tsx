@@ -60,10 +60,10 @@ export default function Education() {
             className={`relative pl-4 border-l-2 ${colorClasses[edu.color]}`}
           >
             <div className={`absolute -left-[5px] top-1 w-2 h-2 rounded-full ${dotColorClasses[edu.color]}`}></div>
-            <h4 className="font-semibold text-sm dark:text-white">{edu.name}</h4>
-            <p className="text-xs text-zinc-300 font-medium">{edu.degree}</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">{edu.years}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-500">{edu.location}</p>
+            <h4 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">{edu.name}</h4>
+            <p className="text-xs font-medium text-zinc-700 dark:text-zinc-300">{edu.degree}</p>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400">{edu.years}</p>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400">{edu.location}</p>
           </div>
         ))}
       </div>

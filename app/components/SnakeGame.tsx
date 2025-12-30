@@ -157,7 +157,7 @@ export default function SnakeGame() {
       {/* Header */}
       <div className="flex items-center justify-between w-full mb-2">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-zinc-400">Score:</span>
+          <span className="text-xs text-zinc-700 dark:text-zinc-400">Score:</span>
           <span className="text-sm font-bold text-green-400">{score}</span>
         </div>
         <div className="flex flex-col items-end">
@@ -166,14 +166,14 @@ export default function SnakeGame() {
             <span className="text-xs font-medium text-yellow-400">{highScore}</span>
           </div>
           {highScoreIp && (
-            <span className="text-[9px] text-zinc-500 font-mono">{highScoreIp.split('.').slice(0, 2).join('.')}.**</span>
+            <span className="text-[9px] text-zinc-600 dark:text-zinc-500 font-mono">{highScoreIp.split('.').slice(0, 2).join('.')}.**</span>
           )}
         </div>
       </div>
 
       {/* Game Board */}
       <div 
-        className="relative border border-zinc-700 rounded-lg bg-zinc-950"
+        className="relative border border-gray-200 dark:border-zinc-700 rounded-lg bg-zinc-50 dark:bg-zinc-950"
         style={{ 
           width: GRID_SIZE * CELL_SIZE + 2, 
           height: GRID_SIZE * CELL_SIZE + 2 
@@ -208,16 +208,16 @@ export default function SnakeGame() {
 
         {/* Overlay Messages */}
         {!isPlaying && !gameOver && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 rounded-lg">
-            <p className="text-xs text-zinc-300 mb-2">Press Space or Play</p>
-            <p className="text-[10px] text-zinc-500">Use WASD or Arrows</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/60 dark:bg-black/60 rounded-lg">
+            <p className="text-xs text-zinc-900 dark:text-zinc-300 mb-2">Press Space or Play</p>
+            <p className="text-[10px] text-zinc-600 dark:text-zinc-500">Use WASD or Arrows</p>
           </div>
         )}
 
         {gameOver && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 rounded-lg">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 dark:bg-black/80 rounded-lg">
             <p className="text-sm font-bold text-red-400 mb-1">Game Over!</p>
-            <p className="text-xs text-zinc-400">Score: {score}</p>
+            <p className="text-xs text-zinc-700 dark:text-zinc-400">Score: {score}</p>
           </div>
         )}
       </div>
@@ -240,7 +240,7 @@ export default function SnakeGame() {
         </button>
         <button
           onClick={resetGame}
-          className="p-2 rounded-lg border bg-zinc-800/50 text-zinc-400 border-zinc-700 hover:bg-zinc-700 hover:text-white transition-all"
+          className="p-2 rounded-lg border bg-zinc-100 dark:bg-zinc-800/50 text-zinc-900 dark:text-zinc-400 border-gray-200 dark:border-zinc-700 hover:dark:bg-zinc-700 hover:text-black dark:hover:text-white transition-all"
         >
           <RotateCcw size={14} />
         </button>
@@ -251,20 +251,20 @@ export default function SnakeGame() {
         <div />
         <button
           onClick={() => { if (directionRef.current !== "DOWN") { setDirection("UP"); directionRef.current = "UP"; }}}
-          className="p-2 bg-zinc-800 rounded text-zinc-400 text-xs"
+          className="p-2 bg-gray-50 dark:bg-zinc-800 rounded text-zinc-900 dark:text-zinc-400 text-xs"
         >▲</button>
         <div />
         <button
           onClick={() => { if (directionRef.current !== "RIGHT") { setDirection("LEFT"); directionRef.current = "LEFT"; }}}
-          className="p-2 bg-zinc-800 rounded text-zinc-400 text-xs"
+          className="p-2 bg-gray-50 dark:bg-zinc-800 rounded text-zinc-900 dark:text-zinc-400 text-xs"
         >◀</button>
         <button
           onClick={() => { if (directionRef.current !== "UP") { setDirection("DOWN"); directionRef.current = "DOWN"; }}}
-          className="p-2 bg-zinc-800 rounded text-zinc-400 text-xs"
+          className="p-2 bg-gray-50 dark:bg-zinc-800 rounded text-zinc-900 dark:text-zinc-400 text-xs"
         >▼</button>
         <button
           onClick={() => { if (directionRef.current !== "LEFT") { setDirection("RIGHT"); directionRef.current = "RIGHT"; }}}
-          className="p-2 bg-zinc-800 rounded text-zinc-400 text-xs"
+          className="p-2 bg-gray-50 dark:bg-zinc-800 rounded text-zinc-900 dark:text-zinc-400 text-xs"
         >▶</button>
       </div>
     </div>
