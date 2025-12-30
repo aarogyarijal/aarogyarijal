@@ -23,6 +23,26 @@ const SUGGESTED_QUESTIONS = [
   "How can I contact you?",
 ];
 
+const logChat = (userMessage: string, botResponse: string) => {
+  try {
+    fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSedNHsXMpNQJlk8488G_83Q1qcpoR4JOGzk40TcG8ftJ_eCEQ/formResponse",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams({
+          "entry.1701281691": new Date().toISOString(),
+          "entry.1003610227": userMessage,
+          "entry.1587683112": botResponse,
+        }),
+      }
+    );
+  } catch (e) {
+    // Swallow errors silently — logging shouldn't break the chat UI.
+    console.debug("logChat error:", e);
+  }
+};
+
 export default function AarogyaBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -134,6 +154,12 @@ export default function AarogyaBot() {
         // ~200-250 words per minute average reading speed
         const delay = word.trim().length > 0 ? Math.max(60, word.length * 30) : 10;
         await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+
+      try {
+        logChat(userInput, fullText);
+      } catch (e) {
+        console.debug("logChat failed:", e);
       }
     } catch (error) {
       console.error("Chat error:", error);
