@@ -1,112 +1,63 @@
-# Aarogya Rijal's Portfolio
+https://aarogyarijal.com
 
-A modern, interactive portfolio website built with Next.js showcasing my professional experience, projects, technical skills, and education. The site features a clean, responsive design with interactive elements including a custom Wordle game.
+# Hi, I'm Aarogya Rijal 👋
 
-## 🌟 Features
+> Software engineer based in Worcester, MA. I build full-stack web apps, design cloud systems, ship prototypes (including ML / computer vision), and help teams and developers grow through mentoring and practical engineering help.
 
-- **Interactive Profile Card** - Links to GitHub, LinkedIn, email, and resume
-- **Work Experience & Projects** - Detailed showcase of professional roles and achievements
-- **Technical Arsenal** - Comprehensive display of technical skills and expertise
-- **Education Section** - Academic background and qualifications
-- **Wordle Game** - Custom 4-letter word guessing game implementation
-- **Responsive Design** - Optimized for desktop, tablet, and mobile devices
-- **Dark Mode Support** - Built-in light and dark theme support
+• Portfolio: https://aarogyarijal.com
+• Email: aarogya.rijal@gmail.com
+• LinkedIn: https://linkedin.com/in/aarogya-rijal-6166792a7
+• GitHub: https://github.com/aarogyarijal
 
-## 🛠️ Tech Stack
+---
 
-- **Framework**: [Next.js 16](https://nextjs.org) with React 19
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **Components**: Custom React components with Lucide React icons
-- **Fonts**: Geist Sans and Geist Mono
-- **Interactive Elements**: React Globe GL, custom game components
+## What I do
 
-## 🚀 Getting Started
+- Build production-ready apps using React, Next.js, and TypeScript.
+- Design and operate cloud & serverless systems on AWS with a focus on cost and reliability.
+- Prototype AI/ML and computer-vision features using Python and OpenCV.
+- Provide code reviews, technical mentoring, interview prep, and short consulting engagements.
 
-### Prerequisites
+## Selected projects
 
-- Node.js (v20 or higher)
-- npm, yarn, pnpm, or bun
+- **Flash News** — Mobile-first, TikTok-style news feed (React + Python ETL).
+- **Coderot** — AI-driven question generation and analytics (React, TypeScript, Node.js).
+- **SmartPark** — Real-time parking detection using OpenCV (Django) — HackHarvard winner.
+- **FounderCloud** — Scalable interactive feed used by 30k+ users.
+- **Sirkoi** — Tutor discovery platform; cost-optimized AWS migration and scaling.
 
-### Installation
+## Tech stack
 
-1. Clone the repository:
-```bash
-git clone https://github.com/aarogyarijal/aarogyarijal.git
-cd aarogyarijal
-```
+React · Next.js · TypeScript · Node.js · Python · Django · OpenCV · PostgreSQL · AWS · CI/CD · Jest
 
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+## How I can help you
 
-3. Run the development server:
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Tell me your problem or share a repo and I can:
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
+1. Propose a concise 1–3 step plan to move forward.
+2. Provide a focused code sample or PR outline.
+3. Build a short prototype/spike to validate an idea.
 
-## 📁 Project Structure
+I keep responses actionable and concise — if you'd like more detail, I can expand on any step.
 
-```
-├── app/
-│   ├── components/       # React components
-│   │   ├── ProfileCard.tsx
-│   │   ├── WorkProjects.tsx
-│   │   ├── Education.tsx
-│   │   ├── TechnicalArsenal.tsx
-│   │   └── WordleGame.tsx
-│   ├── layout.tsx        # Root layout
-│   ├── page.tsx          # Home page
-│   └── globals.css       # Global styles
-├── public/               # Static assets
-└── package.json          # Dependencies and scripts
-```
+---
 
-## 🔧 Development
+## Featured / Pinned repos
 
-- **Build for production**: `npm run build`
-- **Start production server**: `npm start`
-- **Lint code**: `npm run lint`
+See my pinned repositories on my profile for live code examples and demos.
 
-## 📝 Customization
+## GitHub stats (optional)
 
-To customize this portfolio for your own use:
+![Aarogya's GitHub stats](https://github-readme-stats.vercel.app/api?username=aarogyarijal&show_icons=true&theme=github_dark)
 
-1. Update personal information in `app/components/ProfileCard.tsx`
-2. Modify work experience in `app/components/WorkProjects.tsx`
-3. Update education details in `app/components/Education.tsx`
-4. Customize technical skills in `app/components/TechnicalArsenal.tsx`
-5. Replace profile picture in `public/pfp.jpeg`
-6. Update resume file in `public/` directory
+---
 
-## 🌐 Deployment
+## Contact & availability
 
-The easiest way to deploy this Next.js app is using [Vercel](https://vercel.com):
-
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Deploy with zero configuration
-
-For other deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
-
-## 📧 Contact
-
-**Aarogya Rijal**
 - Email: aarogya.rijal@gmail.com
-- GitHub: [@aarogyarijal](https://github.com/aarogyarijal)
-- LinkedIn: [aarogyarijal](https://linkedin.com/in/aarogyarijal)
+- Portfolio: https://aarogyarijal.com
+- LinkedIn: https://linkedin.com/in/aarogya-rijal-6166792a7
 
-## 📄 License
+Open to freelance work, mentoring, and short consulting projects. Message me with a quick summary of your project and preferred next step.
 
-This project is open source and available for personal and educational use.
+<!-- Last updated: 2025-12-30 -->
