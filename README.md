@@ -46,9 +46,14 @@ I keep responses actionable and concise — if you'd like more detail, I can exp
 
 See my pinned repositories on my profile for live code examples and demos.
 
-## GitHub stats (optional)
+## GitHub stats (removed/replaced)
 
-![Aarogya's GitHub stats](https://github-readme-stats.vercel.app/api?username=aarogyarijal&show_icons=true&theme=github_dark)
+The third-party dynamic stats card was removed because it can fail to load in some views. I've replaced it with reliable badges below.
+
+[![Followers](https://img.shields.io/github/followers/aarogyarijal?label=Followers&style=social)](https://github.com/aarogyarijal)
+[![Public Repos](https://img.shields.io/badge/Repositories-View-blue)](https://github.com/aarogyarijal?tab=repositories)
+
+If you'd like the dynamic GitHub Readme Stats card back, I can re-add it — note that it uses a third-party service (github-readme-stats) which sometimes blocks requests; I can host a cached image or add instructions to enable it.
 
 ---
 
