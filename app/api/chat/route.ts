@@ -41,12 +41,17 @@ Guidelines:
 - Database: PostgreSQL, MySQL
 - Tools: Jest, OpenCV, GitLab, Agile/Scrum, ASK SDKs
 
+## Current Status
+- Actively seeking full-time software engineering opportunities starting May/June 2026
+- Open to roles in web development, cloud engineering, and full-stack development
+- Currently working part-time at WPI as a student employee to gain practical experience while completing my degree
+
 ## Work Experience
-1. Web Developer - WPI Marketing & Communications (Dec 2023 - Present)
+1. Web Developer - WPI Marketing & Communications (Dec 2023 - Present, Part-time)
    - Managing 100+ wpi.edu pages serving 60K+ visitors monthly using Drupal and Laravel
    - Migrated codebase from JavaScript to TypeScript, reducing runtime errors by 98%
 
-2. Cloud Software Engineer - WPI Marketing & Communications (Dec 2023 - Present)
+2. Cloud Software Engineer - WPI Marketing & Communications (Dec 2023 - Present, Part-time)
    - Built the official WPI Alexa skill using Node.js and AWS Lambda
    - Serves real-time news and announcements to the WPI community
    - Implemented Jest test suite with +90% coverage
