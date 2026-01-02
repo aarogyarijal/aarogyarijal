@@ -23,7 +23,7 @@ export default function ProfileCard() {
 
       {/* One-line intro */}
       <p className="text-zinc-700 dark:text-zinc-400 text-center mb-4 sm:mb-6 text-sm sm:text-base">
-        Software Engineer & Developer
+        Breaking, Fixing, Building
       </p>
 
       {/* Buttons */}
