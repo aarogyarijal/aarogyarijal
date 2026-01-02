@@ -30,22 +30,6 @@ https://aarogyarijal.com
 
 React · Next.js · TypeScript · Node.js · Python · Django · OpenCV · PostgreSQL · AWS · CI/CD · Jest
 
-## How I can help you
-
-Tell me your problem or share a repo and I can:
-
-1. Propose a concise 1–3 step plan to move forward.
-2. Provide a focused code sample or PR outline.
-3. Build a short prototype/spike to validate an idea.
-
-I keep responses actionable and concise — if you'd like more detail, I can expand on any step.
-
----
-
-## Featured / Pinned repos
-
-See my pinned repositories on my profile for live code examples and demos.
-
 ## Contact & availability
 
 - Email: aarogya.rijal@gmail.com
