@@ -141,7 +141,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
       </div>
 
       {/* Skills Count */}
-      <div className="mt-2 sm:mt-3 pt-2 border-t border-zinc-800">
+      <div className="mt-2 sm:mt-3 pt-2 border-t border-gray-200 dark:border-zinc-800">
         <p className="text-[10px] sm:text-xs text-zinc-500">
           {visibleSkills.length} skill{visibleSkills.length !== 1 ? "s" : ""}
           {hasHighlights && <span className="text-zinc-400"> • {highlightedSkills.length} from experience</span>}

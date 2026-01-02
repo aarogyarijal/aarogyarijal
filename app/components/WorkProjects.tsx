@@ -40,7 +40,7 @@ const professionalExperiences: Experience[] = [
     date: "Dec 2023 - Present",
     location: "Worcester, MA",
     description: "Built WPI Alexa skill using Node.js and AWS serving real-time news and announcements to the community. Implemented Jest test suite with +90% coverage.",
-    skills: ["JavaScript", "Node.js", "AWS Lambda", "Jest", "ASK SDKs", "CI/CD", "AWS Lambda"],
+    skills: ["JavaScript", "Node.js", "AWS Lambda", "Jest", "ASK SDKs", "CI/CD"],
     link: "https://www.amazon.com/Worcester-Polytechnic-Institute-WPI/dp/B0CVJFBK1X",
     logo: "/worcester_polytechnic_institute_logo.jpeg"
   },

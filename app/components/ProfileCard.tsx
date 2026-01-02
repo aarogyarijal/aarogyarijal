@@ -32,7 +32,7 @@ export default function ProfileCard() {
           href="https://github.com/aarogyarijal"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-3 py-2 bg-gray-50 text-zinc-900 rounded-lg hover:bg-gray-100 border border-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700 dark:border-zinc-700 hover:shadow-lg hover:shadow-zinc-700/50 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
+          className="px-3 py-2 bg-gray-50 text-zinc-900 rounded-lg hover:bg-gray-100 border border-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700 dark:border-zinc-700 transition-all duration-300 hover:shadow-lg hover:shadow-zinc-700/50 hover:-translate-y-0.5 text-sm flex items-center gap-1.5"
         >
           <Github size={16} />
           GitHub
