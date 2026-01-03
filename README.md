@@ -16,9 +16,8 @@ Currently shipping features at [FounderCloud](https://foundercloud.com) & [Sirko
 ## 📊 GitHub Stats
 
 <div align="center">
-
 <img align="center" src="https://github-readme-stats-ten-iota-17.vercel.app/api?username=aarogyarijal&show_icons=true" />
-
+<img align="center" src="https://streak-stats.demolab.com?user=aarogyarijal&hide_border=true" alt="GitHub Streak" />
 </div>
 
 ---
