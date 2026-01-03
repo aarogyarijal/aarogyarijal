@@ -47,17 +47,17 @@ AI/ML:     OpenCV • Gemini API • DeepSeek API
 
 ## 🏆 Featured Projects
 
-**[Flash News](https://github.com/aarogyarijal)** — TikTok-style news feed  
+**[Flash News](https://github.com/aarogyarijal/flash-news)** — TikTok-style news feed  
 `React` `Node.js` `Python` `Gemini API`
 
-**[Coderot](https://github.com/aarogyarijal)** — AI-powered question generator with adaptive difficulty  
+**[Coderot](https://github.com/aarogyarijal/coderot)** — AI-powered question generator with adaptive difficulty  
 `TypeScript` `PostgreSQL` `DeepSeek API`
 
-**[SmartPark](https://github.com/aarogyarijal)** 🏆 *HackHarvard Winner*  
+**[SmartPark](https://github.com/aarogyarijal/ObjectDetection)** 🏆 *HackHarvard Winner*  
 Real-time parking detection using OpenCV  
 `Django` `OpenCV` `Firebase`
 
-**[Hospital Service Manager](https://github.com/aarogyarijal)** — Indoor navigation & service requests  
+**Hospital Service Manager** — Indoor navigation & service requests  
 `React` `TypeScript` `PostgreSQL` — *Team of 10, 40+ user stories*
 
 ---
@@ -66,7 +66,7 @@ Real-time parking detection using OpenCV
 
 - 🔭 Building scalable systems at FounderCloud & Sirkoi
 - 🌱 Exploring distributed systems and cloud architecture
-- 🎓 CS @ WPI (Class of 2026, GPA: 4.0)
+- 🎓 CS @ WPI (Class of 2026, Major GPA: 4.0)
 - 💬 Ask me about: React, AWS, TypeScript, or full-stack dev
 - ⚡ Fun fact: Won HackHarvard, spoke at UN on Youth in Tech
 
