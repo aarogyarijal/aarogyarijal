@@ -17,7 +17,7 @@ Currently shipping features at [FounderCloud](https://foundercloud.com) & [Sirko
 
 <div align="center">
 
-![Aarogya's GitHub stats](github-readme-stats-ten-iota-17.vercel.app/api?username=aarogyarijal)
+<img align="center" src="https://github-readme-stats-ten-iota-17.vercel.app/api?username=aarogyarijal&show_icons=true" />
 
 </div>
 
