@@ -41,7 +41,7 @@ AI/ML:     OpenCV • Gemini API • DeepSeek API
 
 **🚀 @ FounderCloud** — Led full site migration for 30K users. Complete rebrand from Starthawk. Building community feed for startup founders.
 
-**🎓 @ Sirkoi** — Secured $10K in cloud credits. Cut infrastructure costs by 95% via AWS migration. Managing distributed team across 4 time zones.
+**🎓 @ Sirkoi** — Secured $50K in cloud credits. Cut infrastructure costs by 95% via AWS migration. Managing distributed team across 4 time zones.
 
 ---
 
