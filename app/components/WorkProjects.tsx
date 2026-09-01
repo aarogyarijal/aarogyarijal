@@ -29,7 +29,9 @@ const professionalExperiences: Experience[] = [
     date: "Jan 2026 - Present",
     location: "Kathmandu, Nepal",
     description: "Co-founded and scaled a software company building proprietary products and delivering software solutions to 7+ external clients. Lead a 10-person cross-functional team across engineering, product, operations, and marketing.",
-    skills: ["React", "Node.js", "TypeScript", "AWS EC2", "PostgreSQL", "Agile/Scrum"]
+    skills: ["React", "Node.js", "TypeScript", "AWS EC2", "PostgreSQL", "Agile/Scrum"],
+    link: "https://www.1m-solution.com",
+    logo: "/one-m-solution-logo.png"
   },
   {
     id: "wpi",
@@ -83,7 +85,8 @@ const startupExperiences: Experience[] = [
     location: "Startup",
     description: "Co-founded a sports platform connecting 200+ users with 110+ venues, owning product development from MVP through launch.",
     skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    link: "https://khel.it"
+    link: "https://khel.it",
+    logo: "/khel-logo.png"
   }
 ];
 
@@ -151,7 +154,7 @@ function ExperienceCard({
       <div className="flex items-start gap-3">
         {/* Logo */}
         {exp.logo && (
-          <div className={`flex-shrink-0 w-10 h-10 rounded-md overflow-hidden ${exp.id === 'sirkoi' ? 'bg-white p-1' : ''}`}>
+          <div className={`flex-shrink-0 w-10 h-10 rounded-md overflow-hidden ${exp.id === 'sirkoi' ? 'bg-white p-1' : exp.id === 'one-million-solutions' || exp.id === 'khel' ? 'bg-zinc-950 p-1' : ''}`}>
             <Image
               src={exp.logo}
               alt={`${exp.title} logo`}
