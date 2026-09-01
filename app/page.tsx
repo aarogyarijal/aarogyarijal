@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProfileCard from "./components/ProfileCard";
 import Education from "./components/Education";
+import Leadership from "./components/Leadership";
 import WorkProjects from "./components/WorkProjects";
 import TechnicalArsenal from "./components/TechnicalArsenal";
 import AarogyaBot from "./components/AarogyaBot";
@@ -17,6 +18,7 @@ export default function Home() {
         <section className="flex flex-col gap-4 md:col-span-1" aria-label="Profile and Education">
           <ProfileCard />
           <Education />
+          <Leadership />
         </section>
 
         {/* Middle Column - Work/Projects */}

@@ -12,7 +12,7 @@ interface Experience {
   id: string;
   title: string;
   role: string;
-  date: string;
+  date?: string;
   location: string;
   description: string;
   skills: string[];
@@ -23,47 +23,35 @@ interface Experience {
 
 const professionalExperiences: Experience[] = [
   {
-    id: "wpi-web",
+    id: "one-million-solutions",
+    title: "1M Solutions Pvt. Ltd.",
+    role: "Co-Founder & Head of Engineering",
+    date: "Jan 2026 - Present",
+    location: "Kathmandu, Nepal",
+    description: "Co-founded and scaled a software company building proprietary products and delivering software solutions to 7+ external clients. Lead a 10-person cross-functional team across engineering, product, operations, and marketing.",
+    skills: ["React", "Node.js", "TypeScript", "AWS EC2", "PostgreSQL", "Agile/Scrum"]
+  },
+  {
+    id: "wpi",
     title: "WPI Marketing & Communications",
-    role: "Web Developer",
-    date: "Dec 2023 - Present",
+    role: "Student Software Developer",
+    date: "Dec 2023 - May 2026",
     location: "Worcester, MA",
-    description: "Managed 100+ wpi.edu pages serving 60K+ visitors monthly using Drupal and Laravel. Migrated codebase from JS to TypeScript, reducing runtime errors by 98%.",
-    skills: ["Drupal", "Laravel", "TypeScript", "JavaScript", "CI/CD", "HTML/CSS", "SASS", "PHP"],
+    description: "Maintained 100+ production wpi.edu pages serving 60K+ monthly users using Drupal, Laravel, TypeScript, SASS, and GitLab. Resolved 900+ production errors and migrated JavaScript to TypeScript, reducing runtime errors by 98%. Built reusable Drupal components, automated profile-change alerts and reports, and deployed WPI's Alexa skill to AWS for live campus news and media.",
+    skills: ["Drupal", "Laravel", "TypeScript", "JavaScript", "SASS", "Git", "AWS Lambda", "Node.js", "Jest"],
     link: "https://wpi.edu",
     logo: "/worcester_polytechnic_institute_logo.jpeg"
   },
   {
-    id: "wpi-cloud",
-    title: "WPI Marketing & Communications",
-    role: "Cloud Software Engineer",
-    date: "Dec 2023 - Present",
-    location: "Worcester, MA",
-    description: "Built WPI Alexa skill using Node.js and AWS serving real-time news and announcements to the community. Implemented Jest test suite with +90% coverage.",
-    skills: ["JavaScript", "Node.js", "AWS Lambda", "Jest", "ASK SDKs", "CI/CD"],
-    link: "https://www.amazon.com/Worcester-Polytechnic-Institute-WPI/dp/B0CVJFBK1X",
-    logo: "/worcester_polytechnic_institute_logo.jpeg"
-  },
-  {
     id: "baato",
-    title: "Baato Maps",
-    role: "Market Researcher",
+    title: "Baato Maps & WPI",
+    role: "Product Research & Analyst",
     date: "Oct 2024 - Dec 2024",
     location: "Kathmandu, Nepal",
-    description: "Led 30+ user interviews identifying critical UX gaps in local digital map adoption, resulting in 5+ feature recommendations. Studied digital behavior of Nepali users and co-authored a research paper focusing on the local use of digital maps.",
+    description: "Sampled and interviewed 30+ users from a 100K+ user base to identify market gaps, resulting in implementation of 5 new features. Co-authored market research on the competitive advantages and challenges of building a locally relevant mapping platform.",
     skills: ["User Research", "Data Analysis"],
     link: "https://digital.wpi.edu/concern/student_works/ht24wp732?locale=en",
     logo: "/baato_maps_logo.jpeg"
-  },
-  {
-    id: "stem",
-    title: "Tufts University & Teach for Nepal",
-    role: "STEM Education Facilitator",
-    date: "Jun 2023 - Aug 2023",
-    location: "Medford, MA & Kathmandu, Nepal",
-    description: "Facilitated collaboration between Tufts CEEO & 20 Nepalese teachers in co-creation of engaging educational activities. Developed teaching materials and trained 20+ educators in Nepal, empowering them with practical STEM teaching techniques.",
-    skills: ["Curriculum Development", "Teacher Training"],
-    logo: "/tuftsceeo_logo.jpeg"
   }
 ];
 
@@ -71,11 +59,10 @@ const startupExperiences: Experience[] = [
   {
     id: "sirkoi",
     title: "Sirkoi",
-    role: "Tech Lead",
-    date: "May 2025 - Present",
+    role: "Co-Founder & Tech Lead",
     location: "Remote",
-    description: "Secured $20,000 credits to scale a tutor discovery platform serving 1000+ users. Reduced infrastructure costs by 95% through AWS migration and managed development across 4 time zones.",
-    skills: ["React", "TypeScript", "Next.js", "AWS EC2", "RDS", "CI/CD", "PostgreSQL"],
+    description: "Secured $20,000 for a tutor discovery platform and AI-native LMS, scaling it to 1,000+ tutors and students. Reduced cloud costs by 95% through an AWS EC2 and RDS migration with automated CI/CD, while leading 100+ issues, 75+ PRs, and 500+ commits across four time zones.",
+    skills: ["React", "TypeScript", "AWS EC2", "RDS", "CI/CD", "PostgreSQL", "Git"],
     link: "https://sirkoi.com",
     logo: "/sirkoi_logo.webp"
   },
@@ -83,16 +70,32 @@ const startupExperiences: Experience[] = [
     id: "foundercloud",
     title: "FounderCloud",
     role: "Tech Lead",
-    date: "July 2025 - Present",
     location: "Remote",
-    description: "Led full rebrand from Starthawk to FounderCloud with website migration, logo design, and built an interactive feed for 30,000+ users to post and engage with startup ideas.",
-    skills: ["Next.js", "GraphQL", "SEO", "Analytics"],
+    description: "Migrated a production domain with 30K+ active users, including redirects, DNS, analytics, and SEO configuration. Led the full rebrand of 20+ pages from Starthawk to FounderCloud and built an interactive feed for startup-idea posts, likes, and comments.",
+    skills: ["React", "TypeScript", "Node.js", "Git"],
     link: "https://foundercloud.com",
     logo: "/starthawk_logo.jpeg"
+  },
+  {
+    id: "khel",
+    title: "Khel",
+    role: "Co-Founder & Tech Lead",
+    location: "Startup",
+    description: "Co-founded a sports platform connecting 200+ users with 110+ venues, owning product development from MVP through launch.",
+    skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    link: "https://khel.it"
   }
 ];
 
 const projectExperiences: Experience[] = [
+  {
+    id: "seven-factor",
+    title: "7Factor & WPI",
+    role: "Software Engineering Project",
+    location: "Sandy Springs, GA",
+    description: "Built a Webhooks-as-a-Service application for secure, real-time event delivery with Next.js and deployed it to AWS.",
+    skills: ["React", "TypeScript", "AWS Lambda", "REST APIs"]
+  },
   {
     id: "flashnews",
     title: "Flash News",
@@ -164,7 +167,9 @@ function ExperienceCard({
             <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100 truncate mb-1">{exp.role}</h3>
             <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400">{exp.title}</p>
             <div className="flex flex-col text-[10px] sm:text-xs text-zinc-600 dark:text-zinc-500 font-mono mt-1.5">
-              <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
+              {exp.date && (
+                <span className="flex items-center gap-1"><Calendar size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.date}</span>
+              )}
               {exp.location && (
                 <span className="flex items-center gap-1"><MapPin size={10} className="sm:w-[11px] sm:h-[11px]" />{exp.location}</span>
               )}

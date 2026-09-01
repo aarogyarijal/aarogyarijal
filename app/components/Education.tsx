@@ -10,25 +10,18 @@ interface EducationEntry {
 
 const educationData: EducationEntry[] = [
   {
-    name: "Worcester Polytechnic Institute",
-    degree: "BS in Computer Science",
-    years: "2022 - 2026",
-    location: "Massachusetts, USA",
-    color: "red"
-  },
-  {
-    name: "United World College",
-    degree: "IBDP",
-    years: "2020 - 2022",
-    location: "Pune, India",
+    name: "Columbia University, Columbia Engineering",
+    degree: "MS in Data Science",
+    years: "Aug 2026 - Dec 2027",
+    location: "New York, NY",
     color: "blue"
   },
   {
-    name: "Ullens School",
-    degree: "National Examinations Board (NEB)",
-    years: "2012 - 2020",
-    location: "Kathmandu, Nepal",
-    color: "green"
+    name: "Worcester Polytechnic Institute",
+    degree: "BS in Computer Science · Major GPA: 4.0/4.0",
+    years: "Aug 2022 - May 2026",
+    location: "Worcester, MA",
+    color: "red"
   }
 ];
 

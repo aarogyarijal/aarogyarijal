@@ -11,20 +11,18 @@ interface TechnicalArsenalProps {
 
 // Primary skills shown by default (from resume)
 const primarySkills = new Set([
-  "React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS",
-  "Node.js", "Python", "PHP", "Laravel",
-  "AWS Lambda", "AWS EC2", "PostgreSQL", "MySQL",
-  "Jest", "Agile/Scrum", "CI/CD"
+  "Python", "JavaScript", "TypeScript", "React", "Node.js", "Laravel",
+  "AWS EC2", "AWS Lambda", "PostgreSQL", "MongoDB", "Git", "CI/CD"
 ]);
 
 // All skills organized by category
 const skillsData = {
-  frontend: { color: "blue", skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "SASS"] },
-  backend: { color: "green", skills: ["Node.js", "PHP", "Laravel", "Python", "Django", "Express", "Drupal", "GraphQL"] },
-  cloud: { color: "orange", skills: ["AWS Lambda", "AWS EC2", "RDS", "Firebase", "CI/CD"] },
-  database: { color: "purple", skills: ["PostgreSQL", "MySQL"] },
-  tools: { color: "red", skills: ["Jest", "OpenCV", "GitLab", "Agile/Scrum", "ASK SDKs"] },
-  other: { color: "pink", skills: ["User Research", "Data Analysis", "SEO", "Analytics", "Curriculum Development", "Teacher Training"] }
+  frontend: { color: "blue", skills: ["React", "TypeScript", "JavaScript", "SASS"] },
+  backend: { color: "green", skills: ["Node.js", "Adonisjs", "Express", "Django", "Laravel", "Drupal", "OpenCV"] },
+  cloud: { color: "orange", skills: ["AWS EC2", "AWS Lambda", "AWS S3", "RDS", "DynamoDB", "AWS CDK", "Firebase", "CI/CD"] },
+  database: { color: "purple", skills: ["PostgreSQL", "Hadoop", "MongoDB", "SQL"] },
+  tools: { color: "red", skills: ["Claude Code", "GitHub Actions", "Git", "Jest", "MVC", "Figma", "Agile/Scrum", "REST APIs"] },
+  other: { color: "pink", skills: ["Python", "Java", "C", "C++", "MATLAB", "User Research", "Data Analysis"] }
 };
 
 const colorClasses: Record<string, string> = {

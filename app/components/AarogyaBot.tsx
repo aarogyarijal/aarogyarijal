@@ -184,13 +184,13 @@ export default function AarogyaBot() {
         if (exists) {
           return prev.map((msg) =>
             msg.id === botMessageId
-              ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at aarogya.rijal@gmail.com!" }
+              ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at ar5211@columbia.edu!" }
               : msg
           );
         } else {
           return [...prev, {
             id: botMessageId,
-            text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at aarogya.rijal@gmail.com!",
+            text: "Sorry, I'm having trouble connecting right now. Feel free to reach out via email at ar5211@columbia.edu!",
             isBot: true,
             timestamp: new Date(),
           }];

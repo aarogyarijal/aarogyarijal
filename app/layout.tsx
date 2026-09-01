@@ -15,26 +15,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Aarogya Rijal | Software Engineer & Full-Stack Developer",
+    default: "Aarogya Rijal | Software Engineer & Engineering Leader",
     template: "%s | Aarogya Rijal",
   },
   description:
-    "Portfolio of Aarogya Rijal - Software Engineer specializing in full-stack development, AI/ML, and geospatial technologies. Experience at Baato Maps, Starthawk, and WPI CEEO.",
+    "Portfolio of Aarogya Rijal, a software engineer and engineering leader building full-stack products and cloud systems. Co-Founder and Head of Engineering at 1M Solutions.",
   keywords: [
     "Aarogya Rijal",
     "Software Engineer",
-    "Full-Stack Developer",
+    "Engineering Leader",
     "React Developer",
-    "Next.js",
     "TypeScript",
     "Node.js",
     "Python",
-    "AI/ML",
-    "Machine Learning",
+    "AWS",
+    "Cloud Engineering",
+    "Columbia Engineering",
     "Worcester Polytechnic Institute",
     "WPI",
     "Portfolio",
-    "Web Development",
     "Software Development",
   ],
   authors: [{ name: "Aarogya Rijal" }],
@@ -45,9 +44,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://aarogyarijal.com",
-    title: "Aarogya Rijal | Software Engineer & Full-Stack Developer",
+    title: "Aarogya Rijal | Software Engineer & Engineering Leader",
     description:
-      "Portfolio of Aarogya Rijal - Software Engineer specializing in full-stack development, AI/ML. Experience at WPI, Sirkoi, Foundercloud, Baato Maps, Starthawk, and Tufts.",
+      "Software engineer and engineering leader building full-stack products and cloud systems. Co-Founder and Head of Engineering at 1M Solutions.",
     siteName: "Aarogya Rijal Portfolio",
     images: [
       {
@@ -82,13 +81,19 @@ export default function RootLayout({
     name: "Aarogya Rijal",
     url: "https://aarogyarijal.com",
     image: "https://aarogyarijal.com/pfp.jpeg",
-    jobTitle: "Software Engineer",
+    jobTitle: "Co-Founder & Head of Engineering",
     description:
-      "Software Engineer specializing in full-stack development, AI/ML.",
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Worcester Polytechnic Institute",
-    },
+      "Software engineer and engineering leader specializing in full-stack product development and cloud systems.",
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Worcester Polytechnic Institute",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Columbia University, Columbia Engineering",
+      },
+    ],
     sameAs: [
       "https://github.com/aarogyarijal",
       "https://www.linkedin.com/in/aarogyarijal",
@@ -96,8 +101,8 @@ export default function RootLayout({
     knowsAbout: [
       "Software Engineering",
       "Full-Stack Development",
-      "Machine Learning",
-      "Artificial Intelligence",
+      "Cloud Engineering",
+      "Product Engineering",
       "Web Development",
     ],
   };
