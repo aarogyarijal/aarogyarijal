@@ -69,7 +69,7 @@ export default function TechnicalArsenal({ highlightedSkills = [] }: TechnicalAr
     : allSkills.filter(s => primarySkills.has(s.skill));
 
   return (
-    <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800 overflow-visible">
+    <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg shadow-md border border-gray-200 dark:border-zinc-800 overflow-visible md:max-h-[46%] md:shrink-0 md:overflow-y-auto">
       <div className="mb-3 sm:mb-4">
         <h2 className="text-lg sm:text-xl font-serif mb-1">
           <span className="text-zinc-700 dark:text-zinc-400">Technical</span> <span className="italic">Arsenal</span>

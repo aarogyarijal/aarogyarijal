@@ -215,7 +215,7 @@ export default function AarogyaBot() {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[380px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-md h-[380px] w-full border border-gray-200 dark:border-zinc-800 overflow-hidden flex flex-col md:h-full md:min-h-0">
       {/* Header */}
       <div className="p-3 sm:p-4 border-b border-gray-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
