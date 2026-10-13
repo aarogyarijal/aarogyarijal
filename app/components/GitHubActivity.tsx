@@ -191,11 +191,11 @@ export default function GitHubActivity() {
         </div>
       )}
 
-      {/* Recent activity */}
-      <div>
+      {/* Recent activity: the list scrolls on its own so the heatmap stays in view */}
+      <div className="flex flex-col md:flex-1 md:min-h-32">
         <p className="text-[10px] sm:text-xs uppercase tracking-wide text-zinc-600 dark:text-zinc-500 mb-2">Latest</p>
         {data && data.activity.length > 0 ? (
-          <ul className="space-y-2">
+          <ul className="space-y-2 max-h-56 overflow-y-auto pr-1 md:max-h-none md:flex-1 md:min-h-0">
             {data.activity.map((item) => {
               const Icon = activityIcons[item.type];
               const content = (
@@ -252,7 +252,7 @@ export default function GitHubActivity() {
           </p>
         ) : (
           <div className="space-y-2">
-            {[0, 1].map((i) => (
+            {[0, 1, 2].map((i) => (
               <div key={i} className="h-10 rounded-md bg-zinc-100 dark:bg-zinc-800 animate-pulse" />
             ))}
           </div>
