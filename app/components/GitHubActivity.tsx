@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GitCommit, GitPullRequest, CircleDot, Eye, Tag, FolderPlus, Star, GitFork, Github, ExternalLink } from "lucide-react";
+import { GitCommit, GitPullRequest, CircleDot, Eye, Tag, FolderPlus, Star, GitFork, Github, ExternalLink, Lock } from "lucide-react";
 import type { ActivityItem, GitHubOverview } from "../lib/github";
 
 const CELL = 10;
@@ -198,21 +198,18 @@ export default function GitHubActivity() {
           <ul className="space-y-2">
             {data.activity.map((item) => {
               const Icon = activityIcons[item.type];
-              return (
-                <li key={item.id}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-2.5 p-2 -mx-2 rounded-md hover:bg-gray-50 dark:hover:bg-zinc-800/60 transition-colors"
-                  >
+              const content = (
+                <>
                     <span className="mt-0.5 w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center bg-green-50 text-green-700 dark:bg-green-500/20 dark:text-green-300">
                       <Icon size={13} />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="flex items-baseline justify-between gap-2">
                         <span className="text-xs sm:text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
-                          {item.title} <span className="font-normal text-zinc-600 dark:text-zinc-400">in {item.repo.split("/")[1] ?? item.repo}</span>
+                          {item.title}{" "}
+                          <span className="font-normal text-zinc-600 dark:text-zinc-400">
+                            {item.repo ? `in ${item.repo.split("/")[1] ?? item.repo}` : "in a private repo"}
+                          </span>
                         </span>
                         <span className="text-[10px] text-zinc-500 flex-shrink-0">{timeAgo(item.createdAt)}</span>
                       </span>
@@ -220,15 +217,35 @@ export default function GitHubActivity() {
                         <span className="block text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 truncate">{item.detail}</span>
                       )}
                     </span>
-                    <ExternalLink size={12} className="mt-1 flex-shrink-0 text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                    {item.url ? (
+                      <ExternalLink size={12} className="mt-1 flex-shrink-0 text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    ) : (
+                      <Lock size={12} aria-label="Private" className="mt-1 flex-shrink-0 text-zinc-400" />
+                    )}
+                </>
+              );
+              const rowClass = "flex items-start gap-2.5 p-2 -mx-2 rounded-md";
+              return (
+                <li key={item.id}>
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group ${rowClass} hover:bg-gray-50 dark:hover:bg-zinc-800/60 transition-colors`}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div className={rowClass}>{content}</div>
+                  )}
                 </li>
               );
             })}
           </ul>
         ) : data || error ? (
           <p className="text-xs text-zinc-600 dark:text-zinc-500">
-            No recent public activity.{" "}
+            No recent activity.{" "}
             <a href={profileUrl} target="_blank" rel="noopener noreferrer" className="text-green-700 dark:text-green-400 underline">
               See GitHub
             </a>

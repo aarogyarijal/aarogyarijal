@@ -4,9 +4,11 @@
 // - Heatmap: GraphQL `contributionsCollection.contributionCalendar` (needs GITHUB_TOKEN,
 //   includes private contribution counts if enabled on the profile). Falls back to parsing
 //   the public https://github.com/users/<user>/contributions fragment, which needs no auth.
-// - Recent activity: REST `/users/<user>/events/public`. Since Oct 2025 GitHub trims
-//   PushEvent/PullRequestEvent payloads (no commit list, no PR title), so the top items are
-//   enriched with a follow-up request for the commit message / PR title.
+// - Recent activity: REST `/users/<user>/events`. Authenticated as the user (GITHUB_TOKEN with
+//   access to private repos), this includes private events; those are anonymized server-side
+//   so no repo name, message or link reaches the client. Without a token it falls back to
+//   `/events/public`. Since Oct 2025 GitHub trims PushEvent/PullRequestEvent payloads (no
+//   commit list, no PR title), so public items are enriched with a follow-up request.
 
 export const GITHUB_USERNAME = "aarogyarijal";
 const REVALIDATE_SECONDS = 3600;
@@ -22,8 +24,10 @@ export interface ActivityItem {
   type: "push" | "pr" | "issue" | "review" | "release" | "create" | "star" | "fork" | "other";
   title: string;
   detail?: string;
-  repo: string;
-  url: string;
+  // Null for private activity, which is shown without any identifying details.
+  repo: string | null;
+  url: string | null;
+  isPrivate: boolean;
   createdAt: string;
 }
 
@@ -169,6 +173,7 @@ function currentStreak(weeks: ContributionDay[][]): number {
 interface RawEvent {
   id: string;
   type: string;
+  public?: boolean;
   created_at: string;
   repo: { name: string };
   payload: {
@@ -191,7 +196,7 @@ const firstLine = (s: string) => s.split("\n")[0].trim();
 function toActivity(e: RawEvent): ActivityItem | null {
   const repo = e.repo.name;
   const repoUrl = `https://github.com/${repo}`;
-  const base = { id: e.id, repo, createdAt: e.created_at };
+  const base = { id: e.id, repo, isPrivate: false, createdAt: e.created_at };
   const p = e.payload;
 
   switch (e.type) {
@@ -263,10 +268,48 @@ function toActivity(e: RawEvent): ActivityItem | null {
   }
 }
 
+// Rebuilt from scratch (never spread from the raw event) so nothing identifying can leak.
+function toPrivateActivity(e: RawEvent): ActivityItem | null {
+  const p = e.payload;
+  const base = { id: e.id, repo: null, url: null, isPrivate: true, createdAt: e.created_at };
+
+  switch (e.type) {
+    case "PushEvent":
+      return { ...base, type: "push", title: "Pushed code" };
+    case "PullRequestEvent": {
+      if (p.action === "opened") return { ...base, type: "pr", title: "Opened a PR" };
+      if (p.action === "closed") return { ...base, type: "pr", title: p.pull_request?.merged ? "Merged a PR" : "Closed a PR" };
+      return null;
+    }
+    case "PullRequestReviewEvent":
+      return { ...base, type: "review", title: "Reviewed a PR" };
+    case "IssuesEvent":
+      if (p.action !== "opened" && p.action !== "closed") return null;
+      return { ...base, type: "issue", title: p.action === "opened" ? "Opened an issue" : "Closed an issue" };
+    case "ReleaseEvent":
+      return { ...base, type: "release", title: "Published a release" };
+    case "CreateEvent":
+      if (p.ref_type !== "repository") return null;
+      return { ...base, type: "create", title: "Created a repository" };
+    default:
+      return null;
+  }
+}
+
 // Fill in commit messages / PR titles that the trimmed Events API payloads no longer carry.
 async function enrich(item: ActivityItem, event: RawEvent): Promise<ActivityItem> {
-  if (item.detail) return item;
   try {
+    if (item.isPrivate) {
+      // Trimmed payloads drop `merged`; look it up but keep only the boolean.
+      if (item.title === "Closed a PR" && event.payload.pull_request) {
+        const pr = await getJson<{ merged_at: string | null }>(
+          `https://api.github.com/repos/${event.repo.name}/pulls/${event.payload.pull_request.number}`
+        );
+        if (pr.merged_at) return { ...item, title: "Merged a PR" };
+      }
+      return item;
+    }
+    if (item.detail) return item;
     if (item.type === "push" && event.payload.head) {
       const commit = await getJson<{ commit: { message: string } }>(
         `https://api.github.com/repos/${item.repo}/commits/${event.payload.head}`
@@ -288,17 +331,30 @@ async function enrich(item: ActivityItem, event: RawEvent): Promise<ActivityItem
 }
 
 async function recentActivity(limit: number): Promise<ActivityItem[]> {
-  const events = await getJson<RawEvent[]>(
-    `https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=50`
-  );
+  const publicUrl = `https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=50`;
+  let events: RawEvent[];
+  if (process.env.GITHUB_TOKEN) {
+    try {
+      events = await getJson<RawEvent[]>(`https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=50`);
+    } catch (err) {
+      console.error("GitHub authenticated events failed, falling back to public:", err);
+      events = await getJson<RawEvent[]>(publicUrl);
+    }
+  } else {
+    events = await getJson<RawEvent[]>(publicUrl);
+  }
 
   const picked: { item: ActivityItem; event: RawEvent }[] = [];
   for (const event of events) {
-    const item = toActivity(event);
+    // Fail closed: anything not explicitly public is anonymized.
+    const item = event.public === true ? toActivity(event) : toPrivateActivity(event);
     if (!item) continue;
-    // Collapse back-to-back pushes to the same repo into one entry.
+    // Collapse back-to-back pushes to the same repo (or to any private repo) into one entry.
     const prev = picked[picked.length - 1];
-    if (prev && prev.item.type === "push" && item.type === "push" && prev.item.repo === item.repo) continue;
+    if (
+      prev && prev.item.type === "push" && item.type === "push" &&
+      prev.item.isPrivate === item.isPrivate && prev.item.repo === item.repo
+    ) continue;
     picked.push({ item, event });
     if (picked.length === limit) break;
   }
