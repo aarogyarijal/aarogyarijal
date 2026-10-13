@@ -377,7 +377,7 @@ export async function getGitHubOverview(): Promise<GitHubOverview> {
 
   const [calendar, activity] = await Promise.all([
     calendarPromise,
-    recentActivity(2).catch((err) => {
+    recentActivity(5).catch((err) => {
       console.error("GitHub events fetch failed:", err);
       return [] as ActivityItem[];
     }),
