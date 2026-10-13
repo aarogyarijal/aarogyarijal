@@ -6,7 +6,7 @@ import Education from "./components/Education";
 import Leadership from "./components/Leadership";
 import WorkProjects from "./components/WorkProjects";
 import TechnicalArsenal from "./components/TechnicalArsenal";
-import AarogyaBot from "./components/AarogyaBot";
+import GitHubActivity from "./components/GitHubActivity";
 
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState<string[]>([]);
@@ -26,11 +26,11 @@ export default function Home() {
           <WorkProjects onSkillHighlight={setHighlightedSkills} />
         </section>
 
-        {/* Right Column - Skills & Chat */}
-        <section className="flex flex-col gap-4 md:h-full md:min-h-0" aria-label="Skills and AI Assistant">
+        {/* Right Column - Skills & GitHub */}
+        <section className="flex flex-col gap-4 md:h-full md:min-h-0" aria-label="Skills and GitHub activity">
           <TechnicalArsenal highlightedSkills={highlightedSkills} />
-          <div className="min-h-[320px] md:min-h-0 md:flex-1">
-            <AarogyaBot />
+          <div className="md:min-h-0 md:flex-1">
+            <GitHubActivity />
           </div>
         </section>
       </div>
