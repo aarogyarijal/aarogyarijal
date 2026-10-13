@@ -1,87 +1,62 @@
-<div align="center">
+<h1 align="center">Aarogya Rijal</h1>
 
-# Hey, I'm Aarogya 👋
+<p align="center">
+  Co-founder &amp; Head of Engineering at <a href="https://www.1m-solution.com">1M Solutions</a> · MS in Data Science at <a href="https://www.columbia.edu">Columbia</a>
+</p>
 
-CS Student @ [WPI](https://wpi.edu) | Building with React, Node.js & AWS  
-Currently shipping features at [FounderCloud](https://foundercloud.com) & [Sirkoi](https://sirkoi.com)
+<p align="center">
+  <a href="https://aarogyarijal.com">aarogyarijal.com</a> ·
+  <a href="https://www.linkedin.com/in/aarogya-rijal-6166792a7">LinkedIn</a> ·
+  <a href="mailto:ar5211@columbia.edu">ar5211@columbia.edu</a> ·
+  <a href="https://aarogyarijal.com/rijalaarogya_resume.pdf">Resume</a>
+</p>
 
-[![Portfolio](https://img.shields.io/badge/aarogyarijal.com-000?style=flat-square&logo=vercel&logoColor=white)](https://aarogyarijal.com)
-[![LinkedIn](https://img.shields.io/badge/Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/aarogya-rijal-6166792a7)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:arijal@wpi.edu)
+<br>
 
-</div>
+I build products end to end, from the first user interview to the cloud bill. Over the last few years that has meant co-founding three startups, running engineering for a software company in Kathmandu, and shipping production code to tens of thousands of users along the way.
 
----
+<br>
 
-## 📊 GitHub Stats
+<p align="center">
+  <a href="https://aarogyarijal.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://aarogyarijal.com/api/github/card?theme=dark">
+      <img alt="Live GitHub activity: contribution heatmap and latest work" src="https://aarogyarijal.com/api/github/card?theme=light" width="760">
+    </picture>
+  </a>
+</p>
+<p align="center"><sub>Live from the GitHub API, refreshed hourly. Private work shows up without names.</sub></p>
 
-<div align="center">
-<img align="center" src="https://github-readme-stats-ten-iota-17.vercel.app/api?username=aarogyarijal&show_icons=true" />
-<img align="center" src="https://streak-stats.demolab.com?user=aarogyarijal&hide_border=true" alt="GitHub Streak" />
-</div>
+## Now
 
----
+- **Running engineering at [1M Solutions](https://www.1m-solution.com).** We build our own products and ship software for 7+ clients. I lead a 10-person team across engineering, product, operations and marketing.
+- **Studying data science at Columbia** (MS, through Dec 2027), after a BS in Computer Science from WPI with a 4.0 major GPA.
 
-## 🛠️ Tech Stack
+## Things I've built
 
-```text
-Frontend:  React • TypeScript • Next.js • TailwindCSS • SASS
-Backend:   Node.js • Python • Django • Express • Laravel
-Cloud:     AWS (EC2, Lambda, S3, RDS) • Firebase
-Database:  PostgreSQL • MongoDB • DynamoDB
-Tools:     Git • GitHub Actions • Jest • Docker • Cursor
-AI/ML:     OpenCV • Gemini API • DeepSeek API
-```
+| | Role | What happened |
+|---|---|---|
+| **[Sirkoi](https://sirkoi.com)** | Co-founder, tech lead | Tutor discovery platform and AI-native LMS. Raised $20K, grew to 1,000+ tutors and students, cut cloud costs 95% moving to AWS EC2/RDS with CI/CD. |
+| **[Khel](https://khel.it)** | Co-founder, tech lead | Sports platform connecting 200+ players with 110+ venues. Owned the product from MVP to launch. |
+| **[FounderCloud](https://foundercloud.com)** | Tech lead | Migrated a 30K-user production domain, led the 20+ page rebrand from Starthawk, built the community feed. |
+| **[WPI](https://wpi.edu)** | Student software developer | Kept 100+ wpi.edu pages running for 60K+ monthly users. Fixed 900+ production errors and cut runtime errors 98% with a TypeScript migration. Shipped WPI's Alexa skill. |
 
----
+## Side projects
 
-## 🚀 What I'm Building
+- **[Flash News](https://github.com/aarogyarijal/flash-news)**: a TikTok-style news feed. React front end, Express API, Python ETL pipelines using the Gemini API.
+- **[Coderot](https://github.com/aarogyarijal/coderot)**: AI-generated coding questions with per-question performance analytics. TypeScript, Node.js, PostgreSQL.
+- **[SmartPark](https://github.com/aarogyarijal/ObjectDetection)**: real-time parking spot detection with OpenCV. *Best Use of Google Cloud, HackHarvard 2022.*
+- **Webhooks-as-a-Service**: secure, real-time event delivery built with Next.js on AWS, for 7Factor.
 
-**💼 @ WPI** — Maintaining 100+ pages with 60K+ monthly visitors. Built Alexa skill for campus. Reduced runtime errors by 98% through TS migration.
+## Toolbox
 
-**🚀 @ FounderCloud** — Led full site migration for 30K users. Complete rebrand from Starthawk. Building community feed for startup founders.
+**Languages** · Python, TypeScript, JavaScript, Java, C/C++, SQL<br>
+**Building** · React, Next.js, Node.js, Express, Django, Laravel, AdonisJS<br>
+**Running** · AWS (EC2, Lambda, S3, RDS, DynamoDB, CDK), PostgreSQL, MongoDB, Firebase, GitHub Actions
 
-**🎓 @ Sirkoi** — Secured $50K in funding. Cut infrastructure costs by 95% via AWS migration. Managing distributed team across 4 time zones.
+<br>
 
----
-
-## 🏆 Featured Projects
-
-**[Flash News](https://github.com/aarogyarijal/flash-news)** — TikTok-style news feed  
-`React` `Node.js` `Python` `Gemini API`
-
-**[Coderot](https://github.com/aarogyarijal/coderot)** — AI-powered question generator with adaptive difficulty  
-`TypeScript` `PostgreSQL` `DeepSeek API`
-
-**[SmartPark](https://github.com/aarogyarijal/ObjectDetection)** 🏆 *HackHarvard Winner*  
-Real-time parking detection using OpenCV  
-`Django` `OpenCV` `Firebase`
-
-**Hospital Service Manager** — Indoor navigation & service requests  
-`React` `TypeScript` `PostgreSQL` — *Team of 10, 40+ user stories*
-
----
-
-## 💭 Currently
-
-- 🔭 Building scalable systems at FounderCloud & Sirkoi
-- 🌱 Exploring distributed systems and cloud architecture
-- 🎓 CS @ WPI (Class of 2026, Major GPA: 4.0)
-- 💬 Ask me about: React, AWS, TypeScript, or full-stack dev
-- ⚡ Fun fact: Won HackHarvard, spoke at UN on Youth in Tech
-
----
-
-<div align="center">
-
-### 📫 Let's Connect
-
-Available for **full-time SWE roles** (Summer 2026) and **part-time opportunities**
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-aarogyarijal.com-blue?style=for-the-badge&logo=vercel)](https://aarogyarijal.com)
-[![Email](https://img.shields.io/badge/Email-arijal@wpi.edu-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:arijal@wpi.edu)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/aarogya-rijal-6166792a7)
-
-![](https://komarev.com/ghpvc/?username=aarogyarijal&color=blueviolet&style=flat-square)
-
-</div>
+<p align="center">
+  Open to talking about startups, engineering leadership, or anything above.<br>
+  <a href="mailto:ar5211@columbia.edu">Say hi</a>
+</p>
